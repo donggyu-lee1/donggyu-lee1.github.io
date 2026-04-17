@@ -2,6 +2,15 @@
   "items": [
     {
       "status": "Working Paper",
+      "sortOrder": 1,
+      "title": "Ideological Bias in LLMs’ Economic Causal Reasoning",
+      "authors": "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
+      "venue": "Submitted to COLM 2026",
+      "year": "2026"
+    },
+    {
+      "status": "Working Paper",
+      "sortOrder": 2,
       "title": "EconCausal: A Context-Aware Causal Reasoning Benchmark for Large Language Models in Social Science",
       "authors": "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
       "venue": "Submitted to KDD 2026",
@@ -9,14 +18,8 @@
       "url": "https://arxiv.org/abs/2510.07231"
     },
     {
-      "status": "Working Paper",
-      "title": "Ideological Bias in LLMs’ Economic Causal Reasoning",
-      "authors": "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
-      "venue": "Submitted to COLM 2026",
-      "year": "2026"
-    },
-    {
       "status": "Published",
+      "sortOrder": 3,
       "title": "Tracking Economic Disparities in North Korea: Satellite Imagery Analysis Using AI with Policy Insights",
       "authors": "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Dongman Lee, Meeyoung Cha, Jihee Kim",
       "venue": "ACM GOODIT 2025",
@@ -25,6 +28,7 @@
     },
     {
       "status": "Published",
+      "sortOrder": 4,
       "title": "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
       "authors": "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seongeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
       "venue": "ACM GOODIT 2025",

@@ -87,9 +87,13 @@ function renderResearch(research) {
     return;
   }
 
+  const introMarkup = research.intro
+    ? `<p class="section-intro">${research.intro}</p>`
+    : "";
+
   headingNode.innerHTML = `
     <h2>${research.heading}</h2>
-    <p class="section-intro">${research.intro}</p>
+    ${introMarkup}
   `;
 
   cardsNode.innerHTML = research.cards
@@ -242,7 +246,13 @@ function renderPublications(data) {
 
   const items = (data.items || [])
     .slice()
-    .sort((a, b) => Number(b.year) - Number(a.year));
+    .sort((a, b) => {
+      const yearDiff = Number(b.year) - Number(a.year);
+      if (yearDiff !== 0) {
+        return yearDiff;
+      }
+      return (a.sortOrder || 0) - (b.sortOrder || 0);
+    });
 
   publicationsList.innerHTML = items.map(renderPublication).join("");
 }
