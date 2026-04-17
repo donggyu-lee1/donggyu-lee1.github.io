@@ -32,27 +32,17 @@
         "primary": false
       }
     ],
-    "facts": [
-      {
-        "value": "2",
-        "label": "Published Papers"
-      },
-      {
-        "value": "2",
-        "label": "Working Papers"
-      }
-    ],
+    "facts": [],
     "caption": ""
   },
   "cv": {
-    "kicker": "CV",
-    "heading": "Curriculum Vitae",
+    "heading": "CV",
     "body": "",
     "buttonLabel": "Open CV",
     "href": "./assets/CV_DonggyuLee.pdf"
   },
   "contact": {
-    "kicker": "Contact",
+    "heading": "Contact",
     "name": "Donggyu Lee",
     "role": "M.S. Student in Data Science, KAIST",
     "email": "donggyu.lee@kaist.ac.kr",

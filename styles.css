@@ -165,16 +165,6 @@ a {
   animation-delay: 0.12s;
 }
 
-.eyebrow,
-.section-kicker {
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.74rem;
-  font-weight: 800;
-  color: var(--warm);
-}
-
 .hero h1,
 .section-heading h2,
 .cv-card h2,
@@ -249,36 +239,6 @@ a {
 .button-primary:hover,
 .button-primary:focus-visible {
   background: #1f394e;
-}
-
-.hero-facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.fact-card {
-  padding: 18px 18px 16px;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  border: 1px solid rgba(29, 38, 48, 0.08);
-  box-shadow: var(--shadow);
-}
-
-.fact-number {
-  display: block;
-  font-family: "Fraunces", serif;
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.fact-label {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-weight: 700;
-  font-size: 0.92rem;
 }
 
 .hero-photo-card {
@@ -390,27 +350,6 @@ a {
   padding: 28px;
 }
 
-.column-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.column-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  height: 36px;
-  padding: 0 12px;
-  border-radius: 999px;
-  background: var(--primary-soft);
-  color: var(--primary);
-  font-weight: 800;
-}
-
 .publication-list {
   display: grid;
   gap: 14px;
@@ -456,22 +395,8 @@ a {
   margin-top: 14px;
 }
 
-.publication-status {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.77rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(39, 70, 95, 0.08);
-  color: var(--primary);
-}
-
 .publication-title {
   display: inline-block;
-  margin-top: 12px;
   text-decoration: none;
   font-weight: 800;
   line-height: 1.45;
@@ -673,10 +598,6 @@ a {
 
   .hero h1 {
     font-size: 2.65rem;
-  }
-
-  .hero-facts {
-    grid-template-columns: 1fr;
   }
 
   .section {

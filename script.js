@@ -48,23 +48,11 @@ function renderHero(site) {
     })
     .join("");
 
-  const heroFacts = (site.hero.facts || [])
-    .map(
-      (fact) => `
-        <div class="fact-card">
-          <span class="fact-number">${fact.value}</span>
-          <span class="fact-label">${fact.label}</span>
-        </div>
-      `
-    )
-    .join("");
-
   heroNode.innerHTML = `
     <h1>${site.hero.name}</h1>
     <p class="hero-role">${site.hero.role}</p>
     <div class="hero-meta">${heroMeta}</div>
     <div class="hero-links">${heroLinks}</div>
-    <div class="hero-facts">${heroFacts}</div>
   `;
 
   if (site.hero.caption) {
@@ -84,14 +72,7 @@ function renderAbout(about) {
     return;
   }
 
-  const headingMarkup = [
-    `<p class="section-kicker">${about.kicker}</p>`,
-    about.heading ? `<h2>${about.heading}</h2>` : ""
-  ]
-    .filter(Boolean)
-    .join("");
-
-  headingNode.innerHTML = headingMarkup;
+  headingNode.innerHTML = about.heading ? `<h2>${about.heading}</h2>` : "";
 
   contentNode.innerHTML = about.paragraphs
     .map((paragraph) => `<p>${paragraph}</p>`)
@@ -107,7 +88,6 @@ function renderResearch(research) {
   }
 
   headingNode.innerHTML = `
-    <p class="section-kicker">${research.kicker}</p>
     <h2>${research.heading}</h2>
     <p class="section-intro">${research.intro}</p>
   `;
@@ -154,7 +134,6 @@ function renderExperience(experience) {
   }
 
   headingNode.innerHTML = `
-    <p class="section-kicker">${experience.kicker}</p>
     <h2>${experience.heading}</h2>
   `;
 
@@ -188,7 +167,6 @@ function renderCv(site) {
 
   cvNode.innerHTML = `
     <div>
-      <p class="section-kicker">${site.cv.kicker}</p>
       <h2>${site.cv.heading}</h2>
       ${bodyMarkup}
     </div>
@@ -208,8 +186,8 @@ function renderContact(site) {
   }
 
   contentNode.innerHTML = `
-    <p class="section-kicker">${site.contact.kicker}</p>
-    <h2>${site.contact.name}</h2>
+    <h2>${site.contact.heading}</h2>
+    <p>${site.contact.name}</p>
     <p>${site.contact.role}</p>
     <p class="muted">${site.contact.email}</p>
   `;
@@ -235,7 +213,6 @@ function renderPublication(item) {
   );
 
   const innerMarkup = `
-    <span class="publication-status">${item.status}</span>
     <span class="publication-title${item.url ? "" : " publication-title-static"}">${item.title}</span>
     <div class="publication-authors">${authors}</div>
     <div class="publication-venue">${item.venue}</div>
@@ -258,9 +235,8 @@ function renderPublication(item) {
 
 function renderPublications(data) {
   const publicationsList = document.querySelector("#publications-list");
-  const publicationsCount = document.querySelector("#publications-count");
 
-  if (!publicationsList || !publicationsCount) {
+  if (!publicationsList) {
     return;
   }
 
@@ -269,7 +245,6 @@ function renderPublications(data) {
     .sort((a, b) => Number(b.year) - Number(a.year));
 
   publicationsList.innerHTML = items.map(renderPublication).join("");
-  publicationsCount.textContent = String(items.length);
 }
 
 function renderPublicationFallback() {
