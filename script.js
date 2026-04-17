@@ -238,7 +238,7 @@ function renderPublication(item) {
     <span class="publication-status">${item.status}</span>
     <span class="publication-title${item.url ? "" : " publication-title-static"}">${item.title}</span>
     <div class="publication-authors">${authors}</div>
-    <div class="publication-venue">${item.venue} · ${item.year}</div>
+    <div class="publication-venue">${item.venue}</div>
   `;
 
   if (item.url) {
@@ -257,26 +257,25 @@ function renderPublication(item) {
 }
 
 function renderPublications(data) {
-  const publishedList = document.querySelector("#published-list");
-  const workingList = document.querySelector("#working-list");
-  const publishedCount = document.querySelector("#published-count");
-  const workingCount = document.querySelector("#working-count");
+  const publicationsList = document.querySelector("#publications-list");
+  const publicationsCount = document.querySelector("#publications-count");
 
-  if (!publishedList || !workingList || !publishedCount || !workingCount) {
+  if (!publicationsList || !publicationsCount) {
     return;
   }
 
-  publishedList.innerHTML = data.published.map(renderPublication).join("");
-  workingList.innerHTML = data.working.map(renderPublication).join("");
-  publishedCount.textContent = String(data.published.length);
-  workingCount.textContent = String(data.working.length);
+  const items = (data.items || [])
+    .slice()
+    .sort((a, b) => Number(b.year) - Number(a.year));
+
+  publicationsList.innerHTML = items.map(renderPublication).join("");
+  publicationsCount.textContent = String(items.length);
 }
 
 function renderPublicationFallback() {
-  const publishedList = document.querySelector("#published-list");
-  const workingList = document.querySelector("#working-list");
+  const publicationsList = document.querySelector("#publications-list");
 
-  if (!publishedList || !workingList) {
+  if (!publicationsList) {
     return;
   }
 
@@ -287,8 +286,7 @@ function renderPublicationFallback() {
     </article>
   `;
 
-  publishedList.innerHTML = fallback;
-  workingList.innerHTML = fallback;
+  publicationsList.innerHTML = fallback;
 }
 
 async function loadJson(path) {

@@ -1,6 +1,6 @@
 {
   "kicker": "About",
-  "heading": "",
+  "heading": "Me",
   "paragraphs": [
     "I am currently pursuing an M.S. in Data Science at KAIST. My research focuses on how machine learning can help measure, interpret, and reason about socio-economic phenomena, especially when reliable data are limited or unevenly distributed.",
     "Across my recent work, I have studied satellite-imagery-based economic estimation, AI-assisted monitoring of development disparities, and the strengths and limits of large language models in economic causal reasoning. I am especially interested in research that connects rigorous empirical questions with practical tools for policy and social impact.",
