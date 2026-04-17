@@ -1,0 +1,19 @@
+{
+  "kicker": "Research",
+  "heading": "Current interests",
+  "intro": "I am interested in methodological work that stays grounded in socially meaningful questions and usable measurements.",
+  "cards": [
+    {
+      "title": "ML for Economics & Finance",
+      "body": "Using machine learning to model socio-economic indicators, economic disparities, and causal structure in high-stakes domains."
+    },
+    {
+      "title": "Computational Social Science",
+      "body": "Studying social and institutional systems with data-driven methods that support interpretable empirical reasoning."
+    },
+    {
+      "title": "Satellite Imagery & Remote Sensing",
+      "body": "Combining geospatial analysis, satellite imagery, and AI to estimate development and economic conditions where surveys are scarce."
+    }
+  ]
+}

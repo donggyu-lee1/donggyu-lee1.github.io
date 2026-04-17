@@ -1,6 +1,24 @@
-# Donggyu Lee Academic Homepage
+# Donggyu Lee Homepage
 
 One-page academic homepage for GitHub Pages.
+
+## Edit Guide
+
+Most text is no longer stored directly in `index.html`.
+
+- `data/site.json`: tab title, hero info, hero links, CV card, contact, footer
+- `data/about.json`: About section heading and paragraphs
+- `data/research.json`: Research section heading, intro, and cards
+- `data/experience.json`: education, work, teaching, and tool lists
+- `data/publications.json`: publications and working papers
+
+If you want to change visible content, edit the corresponding JSON file, then:
+
+```bash
+git add .
+git commit -m "Update homepage content"
+git push
+```
 
 ## Local preview
 
@@ -12,18 +30,8 @@ Then open `http://127.0.0.1:8000`.
 
 ## Publish on GitHub Pages
 
-1. Create a GitHub repository named `donggyu-lee1.github.io`.
-2. Push this directory to the repository's default branch.
-3. In GitHub, confirm Pages is serving from the default branch root.
+Push to the default branch of `donggyu-lee1.github.io`.
 
 Because this is a user site repository, the homepage should publish at:
 
 `https://donggyu-lee1.github.io/`
-
-## Files
-
-- `index.html`: page structure and content
-- `styles.css`: site styling
-- `script.js`: mobile navigation and publication rendering
-- `data/publications.json`: publication metadata
-- `assets/`: profile image, CV, and favicon

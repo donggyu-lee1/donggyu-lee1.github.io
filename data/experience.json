@@ -1,0 +1,65 @@
+{
+  "kicker": "Experience",
+  "heading": "Education, research, and teaching",
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "title": "KAIST",
+        "period": "Sep 2024 - Aug 2026",
+        "subtitle": "M.S. in Data Science",
+        "note": "Advisor: Prof. Jihee Kim"
+      },
+      {
+        "title": "KAIST",
+        "period": "Mar 2017 - Aug 2024",
+        "subtitle": "B.S. in Computer Science, Minor in Economics"
+      },
+      {
+        "title": "EPFL",
+        "period": "Aug 2022 - Feb 2023",
+        "subtitle": "Exchange Student, Lausanne, Switzerland"
+      }
+    ]
+  },
+  "work": {
+    "title": "Research & Work",
+    "items": [
+      {
+        "title": "Max Planck Institute for Security and Privacy",
+        "period": "Aug 2025 - Dec 2025",
+        "subtitle": "Research Intern, Data Science for Humanity"
+      },
+      {
+        "title": "KAIST Applied Artificial Intelligence Lab",
+        "period": "Mar 2024 - Jun 2024",
+        "subtitle": "Undergraduate Researcher"
+      },
+      {
+        "title": "Samsung Electronics",
+        "period": "Jan 2024 - Feb 2024",
+        "subtitle": "Machine Learning Intern"
+      },
+      {
+        "title": "KAIST Financial Engineering Lab",
+        "period": "Jan 2021 - Feb 2021",
+        "subtitle": "Undergraduate Researcher"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Teaching & Tools",
+    "body": "I have served as an undergraduate teaching assistant for CS101: Introduction to Programming across multiple semesters from 2020 to 2024.",
+    "tags": [
+      "Python",
+      "PyTorch",
+      "Pandas",
+      "Google Earth Engine",
+      "QGIS",
+      "Linux",
+      "Git",
+      "Docker",
+      "AWS / Azure"
+    ]
+  }
+}

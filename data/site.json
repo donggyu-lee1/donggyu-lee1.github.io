@@ -1,0 +1,94 @@
+{
+  "pageTitle": "Donggyu Lee",
+  "hero": {
+    "name": "Donggyu Lee",
+    "role": "M.S. Student in Data Science at KAIST",
+    "meta": [
+      "Korea Advanced Institute of Science and Technology"
+    ],
+    "links": [
+      {
+        "label": "CV",
+        "href": "./assets/CV_DonggyuLee.pdf",
+        "external": true,
+        "primary": true
+      },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en",
+        "external": true,
+        "primary": false
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/donggyu-lee-65784b21b",
+        "external": true,
+        "primary": false
+      },
+      {
+        "label": "Email",
+        "href": "mailto:donggyu.lee@kaist.ac.kr",
+        "external": false,
+        "primary": false
+      }
+    ],
+    "facts": [
+      {
+        "value": "2",
+        "label": "Published Papers"
+      },
+      {
+        "value": "2",
+        "label": "Working Papers"
+      },
+      {
+        "value": "3",
+        "label": "Core Research Areas"
+      }
+    ],
+    "caption": "Building data-driven tools for understanding economic and social systems in data-scarce settings."
+  },
+  "cv": {
+    "kicker": "CV",
+    "heading": "Curriculum Vitae",
+    "body": "A PDF version of my CV is available for download and includes a fuller record of education, publications, research experience, and teaching.",
+    "buttonLabel": "Open CV",
+    "href": "./assets/CV_DonggyuLee.pdf"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "name": "Donggyu Lee",
+    "role": "M.S. Student in Data Science, KAIST",
+    "email": "donggyu.lee@kaist.ac.kr",
+    "links": [
+      {
+        "label": "Email",
+        "href": "mailto:donggyu.lee@kaist.ac.kr",
+        "external": false
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/donggyu-lee-65784b21b",
+        "external": true
+      },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en",
+        "external": true
+      },
+      {
+        "label": "CV",
+        "href": "./assets/CV_DonggyuLee.pdf",
+        "external": true
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/donggyu-lee1",
+        "external": true
+      }
+    ]
+  },
+  "footer": {
+    "note": "Built for GitHub Pages"
+  }
+}

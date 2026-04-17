@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donggyu Lee | Academic Homepage</title>
+    <title>Donggyu Lee</title>
     <meta
       name="description"
       content="Donggyu Lee is an M.S. student in Data Science at KAIST working on machine learning for economics and finance, computational social science, and satellite imagery."
@@ -50,53 +50,7 @@
       <section class="hero">
         <div class="shell hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Academic Homepage</p>
-            <h1>Donggyu Lee</h1>
-            <p class="hero-role">M.S. Student in Data Science at KAIST</p>
-            <p class="hero-summary">
-              I work at the intersection of machine learning, economics, and
-              computational social science, with recent projects on
-              socio-economic estimation from satellite imagery and LLM-based
-              causal reasoning in the social sciences.
-            </p>
-            <div class="hero-meta">
-              <span>Korea Advanced Institute of Science and Technology</span>
-              <span>Advised by Prof. Jihee Kim</span>
-            </div>
-            <div class="hero-links">
-              <a class="button button-primary" href="./assets/CV_DonggyuLee.pdf" target="_blank" rel="noopener">CV</a>
-              <a
-                class="button"
-                href="https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en"
-                target="_blank"
-                rel="noopener"
-              >
-                Google Scholar
-              </a>
-              <a
-                class="button"
-                href="https://www.linkedin.com/in/donggyu-lee-65784b21b"
-                target="_blank"
-                rel="noopener"
-              >
-                LinkedIn
-              </a>
-              <a class="button" href="mailto:donggyu.lee@kaist.ac.kr">Email</a>
-            </div>
-            <div class="hero-facts">
-              <div class="fact-card">
-                <span class="fact-number">2</span>
-                <span class="fact-label">Published Papers</span>
-              </div>
-              <div class="fact-card">
-                <span class="fact-number">2</span>
-                <span class="fact-label">Working Papers</span>
-              </div>
-              <div class="fact-card">
-                <span class="fact-number">3</span>
-                <span class="fact-label">Core Research Areas</span>
-              </div>
-            </div>
+            <div id="hero-content"></div>
           </div>
 
           <figure class="hero-photo-card">
@@ -107,94 +61,22 @@
                 class="hero-photo"
               />
             </div>
-            <figcaption>
-              Building data-driven tools for understanding economic and social
-              systems in data-scarce settings.
-            </figcaption>
+            <figcaption id="hero-caption"></figcaption>
           </figure>
         </div>
       </section>
 
       <section id="about" class="section">
         <div class="shell section-grid">
-          <div class="section-heading">
-            <p class="section-kicker">About</p>
-            <h2>Research rooted in real-world measurement</h2>
-          </div>
-          <div class="section-content prose">
-            <p>
-              I am currently pursuing an M.S. in Data Science at KAIST. My
-              research focuses on how machine learning can help measure,
-              interpret, and reason about socio-economic phenomena, especially
-              when reliable data are limited or unevenly distributed.
-            </p>
-            <p>
-              Across my recent work, I have studied satellite-imagery-based
-              economic estimation, AI-assisted monitoring of development
-              disparities, and the strengths and limits of large language models
-              in economic causal reasoning. I am especially interested in
-              research that connects rigorous empirical questions with practical
-              tools for policy and social impact.
-            </p>
-            <p>
-              Previously, I worked as a research intern at the Max Planck
-              Institute for Security and Privacy and as a machine learning intern
-              at Samsung Electronics. I also studied computer science at KAIST,
-              with a minor in economics, and spent a semester abroad at EPFL.
-            </p>
-          </div>
+          <div class="section-heading" id="about-heading"></div>
+          <div class="section-content prose" id="about-content"></div>
         </div>
       </section>
 
       <section id="research" class="section section-accent">
         <div class="shell">
-          <div class="section-heading narrow">
-            <p class="section-kicker">Research</p>
-            <h2>Current interests</h2>
-            <p class="section-intro">
-              I am interested in methodological work that stays grounded in
-              socially meaningful questions and usable measurements.
-            </p>
-          </div>
-
-          <div class="interest-grid">
-            <article class="interest-card">
-              <h3>ML for Economics &amp; Finance</h3>
-              <p>
-                Using machine learning to model socio-economic indicators,
-                economic disparities, and causal structure in high-stakes
-                domains.
-              </p>
-            </article>
-            <article class="interest-card">
-              <h3>Computational Social Science</h3>
-              <p>
-                Studying social and institutional systems with data-driven
-                methods that support interpretable empirical reasoning.
-              </p>
-            </article>
-            <article class="interest-card">
-              <h3>Satellite Imagery &amp; Remote Sensing</h3>
-              <p>
-                Combining geospatial analysis, satellite imagery, and AI to
-                estimate development and economic conditions where surveys are
-                scarce.
-              </p>
-            </article>
-          </div>
-
-          <div class="highlight-panel">
-            <div>
-              <p class="section-kicker">Project Snapshot</p>
-              <h3>Regional Economic Indicator Estimation with LLMs</h3>
-            </div>
-            <p>
-              In collaboration with Samsung Electronics, I worked on an
-              end-to-end pipeline for estimating subnational economic indicators
-              in European countries using satellite imagery, geospatial
-              preprocessing, and large language models.
-            </p>
-          </div>
+          <div class="section-heading narrow" id="research-heading"></div>
+          <div class="interest-grid" id="research-cards"></div>
         </div>
       </section>
 
@@ -230,148 +112,26 @@
 
       <section id="experience" class="section section-accent">
         <div class="shell">
-          <div class="section-heading narrow">
-            <p class="section-kicker">Experience</p>
-            <h2>Education, research, and teaching</h2>
-          </div>
-
-          <div class="experience-grid">
-            <div class="panel">
-              <h3>Education</h3>
-              <div class="timeline">
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>KAIST</strong>
-                    <span>Sep 2024 - Aug 2026</span>
-                  </div>
-                  <p>M.S. in Data Science</p>
-                  <p class="muted">Advisor: Prof. Jihee Kim</p>
-                </article>
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>KAIST</strong>
-                    <span>Mar 2017 - Aug 2024</span>
-                  </div>
-                  <p>B.S. in Computer Science, Minor in Economics</p>
-                </article>
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>EPFL</strong>
-                    <span>Aug 2022 - Feb 2023</span>
-                  </div>
-                  <p>Exchange Student, Lausanne, Switzerland</p>
-                </article>
-              </div>
-            </div>
-
-            <div class="panel">
-              <h3>Research &amp; Work</h3>
-              <div class="timeline">
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>Max Planck Institute for Security and Privacy</strong>
-                    <span>Aug 2025 - Dec 2025</span>
-                  </div>
-                  <p>Research Intern, Data Science for Humanity</p>
-                </article>
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>KAIST Applied Artificial Intelligence Lab</strong>
-                    <span>Mar 2024 - Jun 2024</span>
-                  </div>
-                  <p>Undergraduate Researcher</p>
-                </article>
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>Samsung Electronics</strong>
-                    <span>Jan 2024 - Feb 2024</span>
-                  </div>
-                  <p>Machine Learning Intern</p>
-                </article>
-                <article class="timeline-item">
-                  <div class="timeline-topline">
-                    <strong>KAIST Financial Engineering Lab</strong>
-                    <span>Jan 2021 - Feb 2021</span>
-                  </div>
-                  <p>Undergraduate Researcher</p>
-                </article>
-              </div>
-            </div>
-
-            <div class="panel">
-              <h3>Teaching &amp; Tools</h3>
-              <p>
-                I have served as an undergraduate teaching assistant for
-                <strong>CS101: Introduction to Programming</strong> across
-                multiple semesters from 2020 to 2024.
-              </p>
-              <div class="tag-list">
-                <span>Python</span>
-                <span>PyTorch</span>
-                <span>Pandas</span>
-                <span>Google Earth Engine</span>
-                <span>QGIS</span>
-                <span>Linux</span>
-                <span>Git</span>
-                <span>Docker</span>
-                <span>AWS / Azure</span>
-              </div>
-            </div>
-          </div>
+          <div class="section-heading narrow" id="experience-heading"></div>
+          <div class="experience-grid" id="experience-grid"></div>
         </div>
       </section>
 
       <section id="cv" class="section">
         <div class="shell">
-          <div class="cv-card">
-            <div>
-              <p class="section-kicker">CV</p>
-              <h2>Curriculum Vitae</h2>
-              <p>
-                A PDF version of my CV is available for download and includes a
-                fuller record of education, publications, research experience,
-                and teaching.
-              </p>
-            </div>
-            <a class="button button-primary" href="./assets/CV_DonggyuLee.pdf" target="_blank" rel="noopener">
-              Open CV
-            </a>
-          </div>
+          <div class="cv-card" id="cv-card"></div>
         </div>
       </section>
     </main>
 
     <footer id="contact" class="site-footer">
       <div class="shell footer-grid">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2>Donggyu Lee</h2>
-          <p>M.S. Student in Data Science, KAIST</p>
-          <p class="muted">donggyu.lee@kaist.ac.kr</p>
-        </div>
-        <div class="footer-links">
-          <a href="mailto:donggyu.lee@kaist.ac.kr">Email</a>
-          <a
-            href="https://www.linkedin.com/in/donggyu-lee-65784b21b"
-            target="_blank"
-            rel="noopener"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en"
-            target="_blank"
-            rel="noopener"
-          >
-            Google Scholar
-          </a>
-          <a href="./assets/CV_DonggyuLee.pdf" target="_blank" rel="noopener">CV</a>
-          <a href="https://github.com/donggyu-lee1" target="_blank" rel="noopener">GitHub</a>
-        </div>
+        <div id="contact-content"></div>
+        <div class="footer-links" id="footer-links"></div>
       </div>
       <div class="shell footer-bottom">
         <span>&copy; <span id="current-year"></span> Donggyu Lee</span>
-        <span>Built for GitHub Pages</span>
+        <span id="footer-note">Built for GitHub Pages</span>
       </div>
     </footer>
   </body>

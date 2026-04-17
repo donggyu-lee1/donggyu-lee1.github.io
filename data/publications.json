@@ -3,36 +3,35 @@
     {
       "status": "Published",
       "title": "Tracking Economic Disparities in North Korea: Satellite Imagery Analysis Using AI with Policy Insights",
-      "authors": "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Woonchul Jung, Dongman Lee, Meeyoung Cha, Jihee Kim",
-      "venue": "ACM GoodIT",
+      "authors": "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Dongman Lee, Meeyoung Cha, Jihee Kim",
+      "venue": "ACM GOODIT 2025",
       "year": "2025",
-      "url": "https://pure.kaist.ac.kr/en/publications/tracking-economic-disparities-in-north-korea-satellite-imagery-an/"
+      "url": "https://dl.acm.org/doi/10.1145/3748699.3749786"
     },
     {
       "status": "Published",
-      "title": "LLM-Driven Socio-Economic Estimation for Visegrad Countries",
-      "authors": "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seungeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
-      "venue": "ACM GoodIT",
+      "title": "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
+      "authors": "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seongeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
+      "venue": "ACM GOODIT 2025",
       "year": "2025",
-      "url": "https://pure.kaist.ac.kr/en/publications/llm-driven-socio-economic-estimation-for-visegr%C3%A1d-countries/"
+      "url": "https://dl.acm.org/doi/10.1145/3748699.3749803"
     }
   ],
   "working": [
     {
       "status": "Working Paper",
-      "title": "Benchmarking LLM Causal Reasoning with Scientifically Validated Relationships (EconCausal)",
-      "authors": "Donggyu Lee, Sungwon Park, Yerin Hwang, Hyunwoo Oh, Hyoshin Kim, Jungwon Kim, Meeyoung Cha, Sangyoon Park, Jihee Kim",
-      "venue": "arXiv / Submitted",
-      "year": "2025",
+      "title": "EconCausal: A Context-Aware Causal Reasoning Benchmark for Large Language Models in Social Science",
+      "authors": "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
+      "venue": "Submitted to KDD 2026",
+      "year": "2026",
       "url": "https://arxiv.org/abs/2510.07231"
     },
     {
       "status": "Working Paper",
-      "title": "Ideological Bias in LLMs' Economic Causal Reasoning",
+      "title": "Ideological Bias in LLMs’ Economic Causal Reasoning",
       "authors": "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
-      "venue": "Submitted",
-      "year": "2025",
-      "url": "https://scholar.google.com/scholar?q=Ideological+Bias+in+LLMs%27+Economic+Causal+Reasoning"
+      "venue": "Submitted to COLM 2026",
+      "year": "2026"
     }
   ]
 }
