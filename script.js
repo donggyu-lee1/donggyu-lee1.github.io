@@ -184,11 +184,13 @@ function renderCv(site) {
     return;
   }
 
+  const bodyMarkup = site.cv.body ? `<p>${site.cv.body}</p>` : "";
+
   cvNode.innerHTML = `
     <div>
       <p class="section-kicker">${site.cv.kicker}</p>
       <h2>${site.cv.heading}</h2>
-      <p>${site.cv.body}</p>
+      ${bodyMarkup}
     </div>
     <a class="button button-primary" href="${site.cv.href}" target="_blank" rel="noopener">
       ${site.cv.buttonLabel}
@@ -227,16 +229,29 @@ function renderContact(site) {
 }
 
 function renderPublication(item) {
-  const titleMarkup = item.url
-    ? `<a class="publication-title" href="${item.url}" target="_blank" rel="noopener">${item.title}</a>`
-    : `<span class="publication-title publication-title-static">${item.title}</span>`;
+  const authors = item.authors.replaceAll(
+    "Donggyu Lee",
+    "<strong>Donggyu Lee</strong>"
+  );
+
+  const innerMarkup = `
+    <span class="publication-status">${item.status}</span>
+    <span class="publication-title${item.url ? "" : " publication-title-static"}">${item.title}</span>
+    <div class="publication-authors">${authors}</div>
+    <div class="publication-venue">${item.venue} · ${item.year}</div>
+  `;
+
+  if (item.url) {
+    return `
+      <a class="publication-item publication-item-link" href="${item.url}" target="_blank" rel="noopener">
+        ${innerMarkup}
+      </a>
+    `;
+  }
 
   return `
     <article class="publication-item">
-      <span class="publication-status">${item.status}</span>
-      ${titleMarkup}
-      <div class="publication-authors">${item.authors}</div>
-      <div class="publication-venue">${item.venue} · ${item.year}</div>
+      ${innerMarkup}
     </article>
   `;
 }

@@ -47,7 +47,7 @@
   "cv": {
     "kicker": "CV",
     "heading": "Curriculum Vitae",
-    "body": "A PDF version of my CV is available for download and includes a fuller record of education, publications, research experience, and teaching.",
+    "body": "",
     "buttonLabel": "Open CV",
     "href": "./assets/CV_DonggyuLee.pdf"
   },

@@ -384,7 +384,7 @@ a {
 
 .publication-columns {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 22px;
 }
 
@@ -415,6 +415,7 @@ a {
 }
 
 .publication-item {
+  display: block;
   padding: 16px 0 0;
   border-top: 1px solid rgba(29, 38, 48, 0.08);
 }
@@ -422,6 +423,30 @@ a {
 .publication-item:first-child {
   padding-top: 0;
   border-top: 0;
+}
+
+.publication-item-link {
+  padding: 20px;
+  border-top: 0;
+  border-radius: var(--radius-md);
+  background: rgba(39, 70, 95, 0.03);
+  border: 1px solid rgba(29, 38, 48, 0.08);
+  text-decoration: none;
+  transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+}
+
+.publication-item-link:hover,
+.publication-item-link:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(39, 70, 95, 0.06);
+  border-color: rgba(39, 70, 95, 0.2);
+}
+
+.publication-list .publication-item + .publication-item,
+.publication-list .publication-item + .publication-item-link,
+.publication-list .publication-item-link + .publication-item,
+.publication-list .publication-item-link + .publication-item-link {
+  margin-top: 14px;
 }
 
 .publication-status {
