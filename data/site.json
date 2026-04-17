@@ -40,13 +40,9 @@
       {
         "value": "2",
         "label": "Working Papers"
-      },
-      {
-        "value": "3",
-        "label": "Core Research Areas"
       }
     ],
-    "caption": "Building data-driven tools for understanding economic and social systems in data-scarce settings."
+    "caption": ""
   },
   "cv": {
     "kicker": "CV",

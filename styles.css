@@ -253,7 +253,7 @@ a {
 
 .hero-facts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin-top: 28px;
 }
@@ -308,6 +308,10 @@ a {
   padding: 14px 6px 4px;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+.hero-photo-card figcaption[hidden] {
+  display: none;
 }
 
 .section {
@@ -459,8 +463,12 @@ a {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
+}
+
+.experience-grid .panel {
+  padding: 28px;
 }
 
 .timeline {

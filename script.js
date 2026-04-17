@@ -67,7 +67,13 @@ function renderHero(site) {
     <div class="hero-facts">${heroFacts}</div>
   `;
 
-  captionNode.textContent = site.hero.caption || "";
+  if (site.hero.caption) {
+    captionNode.textContent = site.hero.caption;
+    captionNode.hidden = false;
+  } else {
+    captionNode.textContent = "";
+    captionNode.hidden = true;
+  }
 }
 
 function renderAbout(about) {
@@ -78,10 +84,14 @@ function renderAbout(about) {
     return;
   }
 
-  headingNode.innerHTML = `
-    <p class="section-kicker">${about.kicker}</p>
-    <h2>${about.heading}</h2>
-  `;
+  const headingMarkup = [
+    `<p class="section-kicker">${about.kicker}</p>`,
+    about.heading ? `<h2>${about.heading}</h2>` : ""
+  ]
+    .filter(Boolean)
+    .join("");
+
+  headingNode.innerHTML = headingMarkup;
 
   contentNode.innerHTML = about.paragraphs
     .map((paragraph) => `<p>${paragraph}</p>`)

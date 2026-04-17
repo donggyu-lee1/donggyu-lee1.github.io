@@ -23,7 +23,7 @@
     ]
   },
   "work": {
-    "title": "Research & Work",
+    "title": "Research and Work",
     "items": [
       {
         "title": "Max Planck Institute for Security and Privacy",
@@ -48,7 +48,7 @@
     ]
   },
   "skills": {
-    "title": "Teaching & Tools",
+    "title": "Teaching and Tools",
     "body": "I have served as an undergraduate teaching assistant for CS101: Introduction to Programming across multiple semesters from 2020 to 2024.",
     "tags": [
       "Python",
