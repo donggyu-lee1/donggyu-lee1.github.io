@@ -1,0 +1,57 @@
+---
+const onHomePage = Astro.url.pathname === "/";
+const homeAnchor = (id: string) => (onHomePage ? `#${id}` : `/#${id}`);
+const writingActive = Astro.url.pathname.startsWith("/writing");
+---
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href={onHomePage ? "#top" : "/#top"}>Donggyu Lee</a>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href={homeAnchor("about")}>About</a>
+      <a href={homeAnchor("research")}>Research</a>
+      <a href={homeAnchor("publications")}>Publications</a>
+      <a href="/writing/" aria-current={writingActive ? "page" : undefined}>Writing</a>
+      <a href={homeAnchor("experience")}>Experience</a>
+      <a href={homeAnchor("cv")}>CV</a>
+      <a href={homeAnchor("contact")}>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navToggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+  const siteNav = document.querySelector<HTMLElement>(".site-nav");
+
+  if (navToggle && siteNav) {
+    const closeNavigation = () => {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeNavigation);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeNavigation();
+      }
+    });
+  }
+</script>

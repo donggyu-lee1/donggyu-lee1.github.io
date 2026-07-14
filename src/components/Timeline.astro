@@ -1,0 +1,29 @@
+---
+interface TimelineItem {
+  title: string;
+  period: string;
+  subtitle: string;
+  note?: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline">
+  {
+    items.map((item) => (
+      <article class="timeline-item">
+        <div class="timeline-topline">
+          <strong>{item.title}</strong>
+          <span>{item.period}</span>
+        </div>
+        <p>{item.subtitle}</p>
+        {item.note && <p class="muted">{item.note}</p>}
+      </article>
+    ))
+  }
+</div>

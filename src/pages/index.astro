@@ -1,0 +1,211 @@
+---
+import about from "../../data/about.json";
+import experience from "../../data/experience.json";
+import publicationsData from "../../data/publications.json";
+import research from "../../data/research.json";
+import site from "../../data/site.json";
+import Timeline from "../components/Timeline.astro";
+import WritingCard from "../components/WritingCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../lib/writing";
+
+const pageDescription =
+  "Donggyu Lee is an M.S. student in Data Science at KAIST working on machine learning for economics and finance, computational social science, and satellite imagery.";
+
+const publications = publicationsData.items
+  .slice()
+  .sort((a, b) => {
+    const yearDifference = Number(b.year) - Number(a.year);
+    return yearDifference || (a.sortOrder ?? 0) - (b.sortOrder ?? 0);
+  });
+
+const latestPosts = (await getPublishedPosts()).slice(0, 3);
+const resolveHref = (href: string) =>
+  href.startsWith("./") ? `/${href.slice(2)}` : href;
+---
+
+<BaseLayout title={site.pageTitle} description={pageDescription}>
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <h1>{site.hero.name}</h1>
+          <p class="hero-role">{site.hero.role}</p>
+          <div class="hero-meta">
+            {site.hero.meta.map((item) => <span>{item}</span>)}
+          </div>
+          <div class="hero-links">
+            {
+              site.hero.links.map((link) => (
+                <a
+                  class:list={["button", { "button-primary": link.primary }]}
+                  href={resolveHref(link.href)}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener" : undefined}
+                >
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <figure class="hero-photo-card">
+          <div class="hero-photo-frame">
+            <img
+              src="/assets/profile.jpg"
+              alt="Portrait of Donggyu Lee"
+              class="hero-photo"
+              width="2072"
+              height="2214"
+            />
+          </div>
+          {site.hero.caption && <figcaption>{site.hero.caption}</figcaption>}
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="shell section-grid">
+        <div class="section-heading">
+          <h2>{about.heading}</h2>
+        </div>
+        <div class="section-content prose">
+          {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section section-accent">
+      <div class="shell">
+        <div class="section-heading narrow">
+          <h2>{research.heading}</h2>
+          {research.intro && <p class="section-intro">{research.intro}</p>}
+        </div>
+        <div class="interest-grid">
+          {
+            research.cards.map((card) => (
+              <article class="interest-card">
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="shell">
+        <div class="section-heading narrow">
+          <h2>Publications</h2>
+        </div>
+
+        <div class="publication-column publication-column-single">
+          <div class="publication-list">
+            {
+              publications.map((publication) => {
+                const content = (
+                  <>
+                    <span
+                      class:list={[
+                        "publication-title",
+                        { "publication-title-static": !("url" in publication) }
+                      ]}
+                    >
+                      {publication.title}
+                    </span>
+                    <div class="publication-authors">
+                      {publication.authors
+                        .split(/(Donggyu Lee)/)
+                        .map((part) =>
+                          part === "Donggyu Lee" ? <strong>{part}</strong> : part
+                        )}
+                    </div>
+                    <div class="publication-venue">{publication.venue}</div>
+                  </>
+                );
+
+                return "url" in publication && publication.url ? (
+                  <a
+                    class="publication-item publication-item-link"
+                    href={publication.url}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <article class="publication-item">{content}</article>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {
+      latestPosts.length > 0 && (
+        <section id="writing" class="section section-accent">
+          <div class="shell">
+            <div class="section-heading narrow writing-section-heading">
+              <div>
+                <h2>Writing</h2>
+                <p class="section-intro">Recent notes and essays.</p>
+              </div>
+              <a class="writing-view-all" href="/writing/">View all writing</a>
+            </div>
+            <div class="writing-grid">
+              {latestPosts.map((post) => <WritingCard post={post} />)}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section id="experience" class="section section-accent">
+      <div class="shell">
+        <div class="section-heading narrow">
+          <h2>{experience.heading}</h2>
+        </div>
+        <div class="experience-grid">
+          <div class="panel">
+            <h3>{experience.education.title}</h3>
+            <Timeline items={experience.education.items} />
+          </div>
+          <div class="panel">
+            <h3>{experience.work.title}</h3>
+            <Timeline items={experience.work.items} />
+          </div>
+          <div class="panel">
+            <h3>{experience.skills.title}</h3>
+            <p>{experience.skills.body}</p>
+            <div class="tag-list">
+              {experience.skills.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" class="section">
+      <div class="shell">
+        <div class="cv-card">
+          <div>
+            <h2>{site.cv.heading}</h2>
+            {site.cv.body && <p>{site.cv.body}</p>}
+          </div>
+          <a
+            class="button button-primary"
+            href={resolveHref(site.cv.href)}
+            target="_blank"
+            rel="noopener"
+          >
+            {site.cv.buttonLabel}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

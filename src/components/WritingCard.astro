@@ -1,0 +1,31 @@
+---
+import {
+  formatPostDate,
+  getWritingUrl,
+  type WritingEntry
+} from "../lib/writing";
+
+interface Props {
+  post: WritingEntry;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="writing-card">
+  <div class="writing-card-meta">
+    <time datetime={post.data.pubDate.toISOString()}>
+      {formatPostDate(post.data.pubDate)}
+    </time>
+    {
+      post.data.tags.length > 0 && (
+        <div class="writing-tags" aria-label="Tags">
+          {post.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      )
+    }
+  </div>
+  <h3><a href={getWritingUrl(post)}>{post.data.title}</a></h3>
+  <p>{post.data.description}</p>
+  <a class="writing-card-link" href={getWritingUrl(post)}>Read article <span aria-hidden="true">&rarr;</span></a>
+</article>
