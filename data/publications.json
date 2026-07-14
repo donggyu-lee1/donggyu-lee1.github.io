@@ -2,17 +2,17 @@
   "items": [
     {
       "status": "Accepted",
-      "sortOrder": 1,
+      "sortOrder": 2,
       "title": "Ideological Bias in LLMs’ Economic Causal Reasoning",
       "authors": "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
-      "venue": "Accepted at COLM 2026",
+      "venue": "COLM 2026",
       "year": "2026",
       "url": "https://arxiv.org/abs/2604.21334"
     },
     {
       "status": "Working Paper",
-      "sortOrder": 2,
-      "title": "EconCausal: A Context-Aware Causal Reasoning Benchmark for Large Language Models in Social Science",
+      "sortOrder": 1,
+      "title": "EconCausal: A Context-Aware Economic Reasoning Benchmark for Large Language Models",
       "authors": "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
       "venue": "Submitted to EMNLP 2026",
       "year": "2026",
