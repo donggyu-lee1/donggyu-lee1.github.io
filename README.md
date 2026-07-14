@@ -8,7 +8,6 @@ The existing homepage content remains in JSON files:
 
 - `data/site.json`: page title, profile links, CV, contact, and footer
 - `data/about.json`: About section
-- `data/research.json`: research interests
 - `data/experience.json`: education, work, teaching, and tools
 - `data/publications.json`: publications and working papers
 

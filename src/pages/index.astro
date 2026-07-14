@@ -2,7 +2,6 @@
 import about from "../../data/about.json";
 import experience from "../../data/experience.json";
 import publicationsData from "../../data/publications.json";
-import research from "../../data/research.json";
 import site from "../../data/site.json";
 import Timeline from "../components/Timeline.astro";
 import WritingCard from "../components/WritingCard.astro";
@@ -65,7 +64,7 @@ const resolveHref = (href: string) =>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section about-section">
       <div class="shell section-grid">
         <div class="section-heading">
           <h2>{about.heading}</h2>
@@ -76,26 +75,7 @@ const resolveHref = (href: string) =>
       </div>
     </section>
 
-    <section id="research" class="section section-accent">
-      <div class="shell">
-        <div class="section-heading narrow">
-          <h2>{research.heading}</h2>
-          {research.intro && <p class="section-intro">{research.intro}</p>}
-        </div>
-        <div class="interest-grid">
-          {
-            research.cards.map((card) => (
-              <article class="interest-card">
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="section">
+    <section id="publications" class="section section-accent">
       <div class="shell">
         <div class="section-heading narrow">
           <h2>Publications</h2>
@@ -145,24 +125,28 @@ const resolveHref = (href: string) =>
       </div>
     </section>
 
-    {
-      latestPosts.length > 0 && (
-        <section id="writing" class="section section-accent">
-          <div class="shell">
-            <div class="section-heading narrow writing-section-heading">
-              <div>
-                <h2>Writing</h2>
-                <p class="section-intro">Recent notes and essays.</p>
-              </div>
-              <a class="writing-view-all" href="/writing/">View all writing</a>
-            </div>
+    <section id="writing" class="section">
+      <div class="shell">
+        <div class="section-heading narrow writing-section-heading">
+          <div>
+            <h2>Latest writing</h2>
+            <p class="section-intro">Recent notes and essays.</p>
+          </div>
+          <a class="writing-view-all" href="/writing/">View all writing</a>
+        </div>
+        {
+          latestPosts.length > 0 ? (
             <div class="writing-grid">
               {latestPosts.map((post) => <WritingCard post={post} />)}
             </div>
-          </div>
-        </section>
-      )
-    }
+          ) : (
+            <div class="writing-home-empty">
+              <p>New notes and essays will appear here.</p>
+            </div>
+          )
+        }
+      </div>
+    </section>
 
     <section id="experience" class="section section-accent">
       <div class="shell">
