@@ -14,7 +14,7 @@
       "sortOrder": 1,
       "title": "EconCausal: A Context-Aware Economic Reasoning Benchmark for Large Language Models",
       "authors": "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
-      "venue": "Submitted to EMNLP 2026",
+      "venue": "arXiv preprint",
       "year": "2026",
       "url": "https://arxiv.org/abs/2510.07231"
     },
@@ -31,7 +31,7 @@
       "status": "Published",
       "sortOrder": 4,
       "title": "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
-      "authors": "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seongeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
+      "authors": "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seungeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
       "venue": "ACM GOODIT 2025",
       "year": "2025",
       "url": "https://dl.acm.org/doi/10.1145/3748699.3749803"
