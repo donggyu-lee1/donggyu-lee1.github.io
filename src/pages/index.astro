@@ -1,195 +1,314 @@
 ---
-import about from "../../data/about.json";
-import experience from "../../data/experience.json";
-import publicationsData from "../../data/publications.json";
-import site from "../../data/site.json";
-import Timeline from "../components/Timeline.astro";
-import WritingCard from "../components/WritingCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getPublishedPosts } from "../lib/writing";
+import { getPublishedPosts, getWritingUrl } from "../lib/writing";
 
-const pageDescription =
-  "Donggyu Lee is an M.S. student in Data Science at KAIST working on machine learning for economics and finance, computational social science, and satellite imagery.";
+interface Publication {
+  id: string;
+  title: string;
+  authors: string;
+  venue: string;
+  topic: "llm" | "geo";
+  href: string;
+  projectUrl?: string;
+}
 
-const publications = publicationsData.items
-  .slice()
-  .sort((a, b) => {
-    const yearDifference = Number(b.year) - Number(a.year);
-    return yearDifference || (a.sortOrder ?? 0) - (b.sortOrder ?? 0);
-  });
+interface Experience {
+  id: string;
+  org: string;
+  role: string;
+  period: string;
+  location: string;
+  teaser: string;
+  description: string;
+  tags: string[];
+  award?: string;
+}
 
-const latestPosts = (await getPublishedPosts()).slice(0, 3);
-const resolveHref = (href: string) =>
-  href.startsWith("./") ? `/${href.slice(2)}` : href;
+const publications: Publication[] = [
+  {
+    id: "01",
+    title: "EconCausal: A Context-Aware Economic Reasoning Benchmark for Large Language Models",
+    authors: "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
+    venue: "Submitted to EMNLP 2026",
+    topic: "llm",
+    href: "https://arxiv.org/abs/2510.07231"
+  },
+  {
+    id: "02",
+    title: "Ideological Bias in LLMs’ Economic Causal Reasoning",
+    authors: "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
+    venue: "COLM 2026",
+    topic: "llm",
+    href: "https://arxiv.org/abs/2604.21334",
+    projectUrl: "https://econai.kaist.ac.kr/ideological-bias-in-llms/"
+  },
+  {
+    id: "03",
+    title: "Tracking Economic Disparities in North Korea: Satellite Imagery Analysis Using AI with Policy Insights",
+    authors: "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Dongman Lee, Meeyoung Cha, Jihee Kim",
+    venue: "ACM GOODIT 2025",
+    topic: "geo",
+    href: "https://dl.acm.org/doi/10.1145/3748699.3749786"
+  },
+  {
+    id: "04",
+    title: "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
+    authors: "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seungeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
+    venue: "ACM GOODIT 2025",
+    topic: "geo",
+    href: "https://dl.acm.org/doi/10.1145/3748699.3749803"
+  }
+];
+
+const experiences: Experience[] = [
+  {
+    id: "stanford",
+    org: "Stanford Doerr School of Sustainability",
+    role: "Visiting Researcher",
+    period: "Jul 2026",
+    location: "Stanford, California",
+    teaser: "Satellite crop mapping for low-resource regions",
+    description: "Adapted and enhanced satellite-based crop classification methods for rice, maize, and other major crops, improving transferability and performance in data-scarce regions. The work was conducted with Prof. David Lobell and Prof. Jennifer Burney, in collaboration with the Ministry of Unification of the Republic of Korea.",
+    tags: ["Satellite imagery", "Crop classification", "Low-resource regions"]
+  },
+  {
+    id: "mpi",
+    org: "Max Planck Institute for Security and Privacy",
+    role: "Research Intern",
+    period: "Aug — Dec 2025",
+    location: "Bochum, Germany",
+    teaser: "Satellite imagery + LLM/VLMs for socioeconomic estimation",
+    description: "Estimated socioeconomic indicators using satellite imagery and large language and vision-language models, with applications spanning North Korea, other developing regions, and the Visegrád Group. Conducted in the Data Science for Humanity Group, advised by Prof. Meeyoung Cha.",
+    tags: ["LLMs & VLMs", "Socioeconomic estimation", "Satellite imagery"]
+  },
+  {
+    id: "samsung",
+    org: "Samsung Electronics",
+    role: "Machine Learning Engineer Intern",
+    period: "Jan — Feb 2024",
+    location: "Seoul–Incheon, Korea",
+    teaser: "Synthetic defect images for Galaxy quality inspection",
+    description: "Built a synthetic-data pipeline with Stable Diffusion and DreamBooth to generate smartphone defect images for Galaxy quality-inspection models and improve adaptation to new product launches. The project was conducted in Samsung Electronics Global Research’s Smart Factory Group.",
+    tags: ["Stable Diffusion", "DreamBooth", "Computer vision"],
+    award: "Best Internship Project Award"
+  },
+  {
+    id: "aai",
+    org: "KAIST Applied Artificial Intelligence Lab",
+    role: "Undergraduate Researcher",
+    period: "Mar — Jun 2024",
+    location: "Daejeon, Korea",
+    teaser: "Diffusion models from DDPM to Stable Diffusion",
+    description: "Studied diffusion-based generative models through foundational work including DDPM, DDIM, and Stable Diffusion, then presented their methods and key ideas to the research group.",
+    tags: ["DDPM", "DDIM", "Stable Diffusion"]
+  },
+  {
+    id: "fel",
+    org: "KAIST Financial Engineering Lab",
+    role: "Undergraduate Researcher",
+    period: "Dec 2020 — Feb 2021",
+    location: "Daejeon, Korea",
+    teaser: "Insurance rider recommendation with collaborative filtering",
+    description: "Developed a prototype recommender system for a Korean financial company to recommend insurance riders from customer and product data, exploring collaborative filtering and matrix-factorization approaches such as SVD.",
+    tags: ["Recommender systems", "Collaborative filtering", "SVD"]
+  }
+];
+
+const latestPost = (await getPublishedPosts())[0];
+const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, and computational social science at KAIST.";
 ---
 
-<BaseLayout title={site.pageTitle} description={pageDescription}>
-  <main id="top">
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <h1>{site.hero.name}</h1>
-          <p class="hero-role">{site.hero.role}</p>
-          <div class="hero-meta">
-            {site.hero.meta.map((item) => <span>{item}</span>)}
-          </div>
-          <div class="hero-links">
-            {
-              site.hero.links.map((link) => (
-                <a
-                  class:list={["button", { "button-primary": link.primary }]}
-                  href={resolveHref(link.href)}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener" : undefined}
-                >
-                  {link.label}
-                </a>
-              ))
-            }
-          </div>
-        </div>
+<BaseLayout title="Donggyu Lee — AI, Economics & Society" description={pageDescription}>
+  <main id="top" class="home-page">
+    <div class="cursor-follower" aria-hidden="true"><span></span></div>
+    <a class="skip-link" href="#about">Skip to content</a>
 
-        <figure class="hero-photo-card">
-          <div class="hero-photo-frame">
-            <img
-              src="/assets/profile.jpg"
-              alt="Portrait of Donggyu Lee"
-              class="hero-photo"
-              width="2072"
-              height="2214"
-            />
-          </div>
-          {site.hero.caption && <figcaption>{site.hero.caption}</figcaption>}
-        </figure>
+    <section class="home-hero shell" id="about">
+      <div class="portrait-wrap" data-cursor="Hi!">
+        <div class="portrait-blob" aria-hidden="true"></div>
+        <img src="/assets/profile.jpg" alt="Portrait of Donggyu Lee" width="2072" height="2214" />
+        <span class="portrait-caption">Daejeon, Korea <b aria-hidden="true">●</b></span>
       </div>
-    </section>
 
-    <section id="about" class="section about-section">
-      <div class="shell section-grid">
-        <div class="section-heading">
-          <h2>{about.heading}</h2>
+      <div class="hero-copy">
+        <p class="hello">Hi, I’m Donggyu <span aria-hidden="true">👋</span></p>
+        <h1>AI for economic<br />and social questions.</h1>
+        <p class="lead">Incoming PhD student at KAIST, studying how AI systems reason about economic and social phenomena.</p>
+        <p class="bio">I work across large language models, satellite imagery, and computational social science—especially when reliable data are scarce.</p>
+
+        <div class="hero-buttons">
+          <a class="home-button primary" href="/assets/CV_DonggyuLee.pdf" target="_blank" rel="noopener" data-cursor="Open CV">Curriculum Vitae <span aria-hidden="true">↗</span></a>
+          <a class="home-button secondary" href="https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en" target="_blank" rel="noopener" data-cursor="Scholar">Google Scholar <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="section-content prose">
-          {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+
+        <div class="social-links" aria-label="Social links">
+          <a href="mailto:donggyu.lee@kaist.ac.kr" data-cursor="Email">Email</a>
+          <a href="https://github.com/donggyu-lee1" target="_blank" rel="noopener" data-cursor="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/donggyu-lee-65784b21b" target="_blank" rel="noopener" data-cursor="LinkedIn">LinkedIn</a>
         </div>
       </div>
     </section>
 
-    <section id="publications" class="section section-accent">
-      <div class="shell">
-        <div class="section-heading narrow">
-          <h2>Publications</h2>
+    <aside class="home-news shell" aria-label="Latest update">
+      <span aria-hidden="true">✨</span>
+      <p><strong>Recently:</strong> Visiting research at Stanford Doerr on satellite crop mapping in data-scarce regions.</p>
+      <a href="#experience" data-cursor="Details">More</a>
+    </aside>
+
+    <section class="home-section shell" id="work">
+      <div class="home-section-title-row">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2>Research</h2>
         </div>
-
-        <div class="publication-column publication-column-single">
-          <div class="publication-list">
-            {
-              publications.map((publication) => {
-                const content = (
-                  <>
-                    <span
-                      class:list={[
-                        "publication-title",
-                        { "publication-title-static": !("url" in publication) }
-                      ]}
-                    >
-                      {publication.title}
-                    </span>
-                    <div class="publication-authors">
-                      {publication.authors
-                        .split(/(Donggyu Lee)/)
-                        .map((part) =>
-                          part === "Donggyu Lee" ? <strong>{part}</strong> : part
-                        )}
-                    </div>
-                    <div class="publication-venue">{publication.venue}</div>
-                  </>
-                );
-
-                return "url" in publication && publication.url ? (
-                  <a
-                    class="publication-item publication-item-link"
-                    href={publication.url}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <article class="publication-item">{content}</article>
-                );
-              })
-            }
-          </div>
+        <div class="filter-buttons" aria-label="Filter publications">
+          <button type="button" class="active" aria-pressed="true" data-filter="all" data-cursor="Filter">All</button>
+          <button type="button" aria-pressed="false" data-filter="llm" data-cursor="Filter">LLM reasoning</button>
+          <button type="button" aria-pressed="false" data-filter="geo" data-cursor="Filter">Satellite &amp; society</button>
         </div>
       </div>
-    </section>
 
-    <section id="writing" class="section">
-      <div class="shell">
-        <div class="section-heading narrow writing-section-heading">
-          <div>
-            <h2>Latest writing</h2>
-            <p class="section-intro">Recent notes and essays.</p>
-          </div>
-          <a class="writing-view-all" href="/writing/">View all writing</a>
-        </div>
-        {
-          latestPosts.length > 0 ? (
-            <div class="writing-grid">
-              {latestPosts.map((post) => <WritingCard post={post} />)}
+      <div class="paper-list" aria-live="polite">
+        {publications.map((paper) => (
+          <article class="paper-row" data-paper-topic={paper.topic}>
+            <span class="paper-number">{paper.id}</span>
+            <div class="paper-copy">
+              <p class="venue">{paper.venue}</p>
+              <h3><a href={paper.href} target="_blank" rel="noopener" data-cursor="Read paper">{paper.title}</a></h3>
+              <p class="authors">{paper.authors}</p>
             </div>
-          ) : (
-            <div class="writing-home-empty">
-              <p>New notes and essays will appear here.</p>
+            <div class="paper-actions">
+              <a class="paper-action" href={paper.href} target="_blank" rel="noopener" data-cursor="Paper">Paper ↗</a>
+              {paper.projectUrl && (
+                <a class="paper-action project-action" href={paper.projectUrl} target="_blank" rel="noopener" data-cursor="Project">Project page ↗</a>
+              )}
             </div>
-          )
-        }
+          </article>
+        ))}
       </div>
     </section>
 
-    <section id="experience" class="section section-accent">
-      <div class="shell">
-        <div class="section-heading narrow">
-          <h2>{experience.heading}</h2>
+    <section class="home-section experience-section shell" id="experience">
+      <div class="home-section-title-row experience-heading">
+        <div>
+          <p class="section-kicker">Places I’ve learned from</p>
+          <h2>Experience</h2>
         </div>
-        <div class="experience-grid">
-          <div class="panel">
-            <h3>{experience.education.title}</h3>
-            <Timeline items={experience.education.items} />
-          </div>
-          <div class="panel">
-            <h3>{experience.work.title}</h3>
-            <Timeline items={experience.work.items} />
-          </div>
-          <div class="panel">
-            <h3>{experience.skills.title}</h3>
-            <p>{experience.skills.body}</p>
-            <div class="tag-list">
-              {experience.skills.tags.map((tag) => <span>{tag}</span>)}
-            </div>
-          </div>
-        </div>
+        <p>Hover for a quick hint. Click a place to see what I worked on.</p>
       </div>
+
+      <div class="experience-list">
+        {experiences.map((item) => (
+          <article class="experience-item">
+            <button type="button" aria-expanded="false" aria-controls={`experience-${item.id}`} data-experience-id={item.id} data-cursor="What I did">
+              <time>{item.period}</time>
+              <span class="experience-name"><strong>{item.org}</strong><small>{item.role}</small></span>
+              <span class="experience-teaser">{item.teaser}</span>
+              <span class="plus" aria-hidden="true">+</span>
+            </button>
+            <div class="experience-hover" aria-hidden="true">{item.teaser}</div>
+            <div class="experience-detail" id={`experience-${item.id}`} hidden>
+              <div>
+                <p class="detail-label">What I worked on</p>
+                <p>{item.description}</p>
+                {item.award && <span class="award">🏆 {item.award}</span>}
+              </div>
+              <div class="detail-meta">
+                <span>📍 {item.location}</span>
+                <div>{item.tags.map((tag) => <span>{tag}</span>)}</div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="experience-source">Details follow my current LinkedIn profile. KAIST lab names use the labels from this website. <a href="https://www.linkedin.com/in/donggyu-lee-65784b21b" target="_blank" rel="noopener" data-cursor="LinkedIn">View profile ↗</a></p>
     </section>
 
-    <section id="cv" class="section">
-      <div class="shell">
-        <div class="cv-card">
-          <div>
-            <h2>{site.cv.heading}</h2>
-            {site.cv.body && <p>{site.cv.body}</p>}
-          </div>
-          <a
-            class="button button-primary"
-            href={resolveHref(site.cv.href)}
-            target="_blank"
-            rel="noopener"
-          >
-            {site.cv.buttonLabel}
-          </a>
-        </div>
+    <section class="home-small-grid shell">
+      <div class="home-small-card education-card">
+        <span aria-hidden="true">🎓</span>
+        <p class="section-kicker">Education</p>
+        <h3>KAIST</h3>
+        <p>M.S. Data Science · 2024–2026<br />B.S. Computer Science · Economics minor</p>
+        <small>Exchange at EPFL · 2022–2023</small>
       </div>
+      {latestPost && (
+        <a class="home-small-card writing-card-home" href={getWritingUrl(latestPost)} data-cursor="Read note">
+          <span aria-hidden="true">✍️</span>
+          <p class="section-kicker">Latest note</p>
+          <h3>{latestPost.data.title}</h3>
+          <p>{latestPost.data.description}</p>
+          <strong>Read writing ↗</strong>
+        </a>
+      )}
     </section>
   </main>
 </BaseLayout>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+  const paperRows = document.querySelectorAll<HTMLElement>("[data-paper-topic]");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const topic = button.dataset.filter;
+      filterButtons.forEach((candidate) => {
+        const active = candidate === button;
+        candidate.classList.toggle("active", active);
+        candidate.setAttribute("aria-pressed", String(active));
+      });
+      paperRows.forEach((row) => {
+        row.hidden = topic !== "all" && row.dataset.paperTopic !== topic;
+      });
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-experience-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = button.closest<HTMLElement>(".experience-item");
+      const detail = document.getElementById(`experience-${button.dataset.experienceId}`);
+      if (!item || !detail) return;
+      const willOpen = button.getAttribute("aria-expanded") !== "true";
+
+      document.querySelectorAll<HTMLButtonElement>("[data-experience-id]").forEach((candidate) => {
+        const candidateItem = candidate.closest<HTMLElement>(".experience-item");
+        const candidateDetail = document.getElementById(`experience-${candidate.dataset.experienceId}`);
+        candidate.setAttribute("aria-expanded", "false");
+        candidateItem?.classList.remove("open");
+        if (candidateDetail) candidateDetail.hidden = true;
+        const plus = candidate.querySelector<HTMLElement>(".plus");
+        if (plus) plus.textContent = "+";
+      });
+
+      if (willOpen) {
+        button.setAttribute("aria-expanded", "true");
+        item.classList.add("open");
+        detail.hidden = false;
+        const plus = button.querySelector<HTMLElement>(".plus");
+        if (plus) plus.textContent = "−";
+      }
+    });
+  });
+
+  const cursor = document.querySelector<HTMLElement>(".cursor-follower");
+  if (cursor && !window.matchMedia("(pointer: coarse)").matches) {
+    const label = cursor.querySelector<HTMLElement>("span");
+    window.addEventListener("pointermove", (event) => {
+      cursor.style.setProperty("--cursor-x", `${event.clientX}px`);
+      cursor.style.setProperty("--cursor-y", `${event.clientY}px`);
+      cursor.classList.add("is-visible");
+    }, { passive: true });
+    document.addEventListener("pointerover", (event) => {
+      const target = (event.target as Element | null)?.closest<HTMLElement>("[data-cursor]");
+      if (target) {
+        if (label) label.textContent = target.dataset.cursor ?? "Open";
+        cursor.classList.add("is-active");
+      } else {
+        if (label) label.textContent = "";
+        cursor.classList.remove("is-active");
+      }
+    }, { passive: true });
+    document.documentElement.addEventListener("mouseleave", () => cursor.classList.remove("is-visible", "is-active"));
+  }
+</script>

@@ -2,7 +2,7 @@
   "pageTitle": "Donggyu Lee",
   "hero": {
     "name": "Donggyu Lee",
-    "role": "M.S. Student in Data Science at KAIST",
+    "role": "Incoming PhD Student at KAIST",
     "meta": [
       "Korea Advanced Institute of Science and Technology"
     ],
@@ -44,7 +44,7 @@
   "contact": {
     "heading": "Contact",
     "name": "Donggyu Lee",
-    "role": "M.S. Student in Data Science, KAIST",
+    "role": "Incoming PhD Student, KAIST",
     "email": "donggyu.lee@kaist.ac.kr",
     "links": [
       {
@@ -75,6 +75,6 @@
     ]
   },
   "footer": {
-    "note": "Built for GitHub Pages"
+    "note": "AI · Economics · Society"
   }
 }

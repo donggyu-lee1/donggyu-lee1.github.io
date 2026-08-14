@@ -25,40 +25,61 @@
     "title": "Research and Work",
     "items": [
       {
+        "id": "stanford",
+        "title": "Stanford Doerr School of Sustainability",
+        "period": "Jul 2026",
+        "subtitle": "Visiting Researcher",
+        "location": "Stanford, California",
+        "teaser": "Satellite crop mapping for low-resource regions",
+        "description": "Adapted and enhanced satellite-based crop classification methods for rice, maize, and other major crops, improving transferability and performance in data-scarce regions.",
+        "tags": ["Satellite imagery", "Crop classification", "Low-resource regions"]
+      },
+      {
+        "id": "mpi",
         "title": "Max Planck Institute for Security and Privacy",
-        "period": "Aug 2025 - Dec 2025",
-        "subtitle": "Research Intern, Data Science for Humanity, Supervised by Mia Cha"
+        "period": "Aug - Dec 2025",
+        "subtitle": "Research Intern",
+        "location": "Bochum, Germany",
+        "teaser": "Satellite imagery + LLM/VLMs for socioeconomic estimation",
+        "description": "Estimated socioeconomic indicators using satellite imagery and large language and vision-language models in the Data Science for Humanity Group.",
+        "tags": ["LLMs & VLMs", "Socioeconomic estimation", "Satellite imagery"]
       },
       {
-        "title": "KAIST Applied Artificial Intelligence Lab",
-        "period": "Mar 2024 - Jun 2024",
-        "subtitle": "Undergraduate Researcher"
-      },
-      {
+        "id": "samsung",
         "title": "Samsung Electronics",
-        "period": "Jan 2024 - Feb 2024",
-        "subtitle": "Machine Learning Intern"
+        "period": "Jan - Feb 2024",
+        "subtitle": "Machine Learning Engineer Intern",
+        "location": "Seoul-Incheon, Korea",
+        "teaser": "Synthetic defect images for Galaxy quality inspection",
+        "description": "Built a synthetic-data pipeline with Stable Diffusion and DreamBooth for Galaxy quality-inspection models.",
+        "tags": ["Stable Diffusion", "DreamBooth", "Computer vision"],
+        "award": "Best Internship Project Award"
       },
       {
+        "id": "aai",
+        "title": "KAIST Applied Artificial Intelligence Lab",
+        "period": "Mar - Jun 2024",
+        "subtitle": "Undergraduate Researcher",
+        "location": "Daejeon, Korea",
+        "teaser": "Diffusion models from DDPM to Stable Diffusion",
+        "description": "Studied diffusion-based generative models and presented their methods and key ideas to the research group.",
+        "tags": ["DDPM", "DDIM", "Stable Diffusion"]
+      },
+      {
+        "id": "fel",
         "title": "KAIST Financial Engineering Lab",
-        "period": "Jan 2021 - Feb 2021",
-        "subtitle": "Undergraduate Researcher"
+        "period": "Dec 2020 - Feb 2021",
+        "subtitle": "Undergraduate Researcher",
+        "location": "Daejeon, Korea",
+        "teaser": "Insurance rider recommendation with collaborative filtering",
+        "description": "Developed a prototype recommender system for a Korean financial company using collaborative filtering and matrix-factorization methods.",
+        "tags": ["Recommender systems", "Collaborative filtering", "SVD"]
       }
     ]
   },
   "skills": {
     "title": "Teaching and Tools",
-    "body": "I have served as an undergraduate teaching assistant for CS101: Introduction to Programming across multiple semesters from 2020 to 2024.",
-    "tags": [
-      "Python",
-      "PyTorch",
-      "Pandas",
-      "Google Earth Engine",
-      "QGIS",
-      "Linux",
-      "Git",
-      "Docker",
-      "AWS / Azure"
-    ]
+    "body": "I served as an undergraduate teaching assistant for CS101: Introduction to Programming across multiple semesters from 2020 to 2024.",
+    "tags": ["Python", "PyTorch", "Pandas", "Google Earth Engine", "QGIS", "Linux", "Git", "Docker", "AWS / Azure"]
   }
 }
