@@ -1,35 +1,18 @@
 ---
-import site from "../../data/site.json";
-
 const currentYear = new Date().getUTCFullYear();
-const resolveHref = (href: string) =>
-  href.startsWith("./") ? `/${href.slice(2)}` : href;
 ---
 
 <footer id="contact" class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <h2>{site.contact.heading}</h2>
-      <p>{site.contact.name}</p>
-      <p>{site.contact.role}</p>
-      <p class="muted">{site.contact.email}</p>
+  <div class="shell footer-inner">
+    <p class="section-kicker">Let’s talk</p>
+    <h2>Have a question<br />or an idea? <span aria-hidden="true">🙂</span></h2>
+    <a class="footer-button" href="mailto:donggyu.lee@kaist.ac.kr" data-cursor="Email me">
+      donggyu.lee@kaist.ac.kr <span aria-hidden="true">↗</span>
+    </a>
+    <div class="footer-bottom">
+      <span>&copy; {currentYear} Donggyu Lee</span>
+      <span>KAIST · Daejeon, Korea</span>
+      <a href="/#top" data-cursor="Top">Back to top ↑</a>
     </div>
-    <div class="footer-links">
-      {
-        site.contact.links.map((link) => (
-          <a
-            href={resolveHref(link.href)}
-            target={link.external ? "_blank" : undefined}
-            rel={link.external ? "noopener" : undefined}
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </div>
-  </div>
-  <div class="shell footer-bottom">
-    <span>&copy; {currentYear} Donggyu Lee</span>
-    <span>{site.footer.note}</span>
   </div>
 </footer>
