@@ -27,14 +27,6 @@ interface Experience {
 const publications: Publication[] = [
   {
     id: "01",
-    title: "EconCausal: A Context-Aware Economic Reasoning Benchmark for Large Language Models",
-    authors: "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
-    venue: "Submitted to EMNLP 2026",
-    topic: "llm",
-    href: "https://arxiv.org/abs/2510.07231"
-  },
-  {
-    id: "02",
     title: "Ideological Bias in LLMs’ Economic Causal Reasoning",
     authors: "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
     venue: "COLM 2026",
@@ -43,7 +35,23 @@ const publications: Publication[] = [
     projectUrl: "https://econai.kaist.ac.kr/ideological-bias-in-llms/"
   },
   {
+    id: "02",
+    title: "EconCausal: A Context-Aware Causal Reasoning Benchmark for Large Language Models in Social Science",
+    authors: "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
+    venue: "NeurIPS 2026 EconML Workshop",
+    topic: "llm",
+    href: "https://arxiv.org/abs/2510.07231"
+  },
+  {
     id: "03",
+    title: "From Simulated Citizens to Simulated Deliberation: Challenges in Representation and Interaction",
+    authors: "Chaemin Jang, Junsik Min, Jaewoo Choi, Donggyu Lee, Haiin Lee, Junyoung Park, Namhee Kim, Hyunwoo Kim, Jungwon Kim, Juho Kim, Nuri Kim, Jihee Kim",
+    venue: "NeurIPS 2026 SocialAgent Workshop · NeurIPS 2026 UserSim Workshop",
+    topic: "llm",
+    href: "https://arxiv.org/abs/2609.07573"
+  },
+  {
+    id: "04",
     title: "Tracking Economic Disparities in North Korea: Satellite Imagery Analysis Using AI with Policy Insights",
     authors: "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Dongman Lee, Meeyoung Cha, Jihee Kim",
     venue: "ACM GOODIT 2025",
@@ -51,7 +59,7 @@ const publications: Publication[] = [
     href: "https://dl.acm.org/doi/10.1145/3748699.3749786"
   },
   {
-    id: "04",
+    id: "05",
     title: "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
     authors: "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seungeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
     venue: "ACM GOODIT 2025",
@@ -82,6 +90,16 @@ const experiences: Experience[] = [
     tags: ["LLMs & VLMs", "Socioeconomic estimation", "Satellite imagery"]
   },
   {
+    id: "samsung-research",
+    org: "KAIST · Samsung Electronics",
+    role: "Collaborative Research Project",
+    period: "Aug 2024 — Jul 2025",
+    location: "South Korea",
+    teaser: "Regional economic indicators with LLMs and satellite imagery",
+    description: "Contributed to a collaborative project estimating regional economic indicators in four European countries using LLMs and satellite imagery. Took primary responsibility for the satellite-to-LLM pipeline, including satellite tiling, geospatial preprocessing, and economic indicator prediction experiments.",
+    tags: ["LLMs", "Satellite imagery", "Economic indicators"]
+  },
+  {
     id: "samsung",
     org: "Samsung Electronics",
     role: "Machine Learning Engineer Intern",
@@ -101,6 +119,26 @@ const experiences: Experience[] = [
     teaser: "Diffusion models from DDPM to Stable Diffusion",
     description: "Studied diffusion-based generative models through foundational work including DDPM, DDIM, and Stable Diffusion, then presented their methods and key ideas to the research group.",
     tags: ["DDPM", "DDIM", "Stable Diffusion"]
+  },
+  {
+    id: "cs101",
+    org: "KAIST · CS101: Introduction to Programming",
+    role: "Undergraduate Teaching Assistant",
+    period: "2020 — 2024",
+    location: "Daejeon, Korea",
+    teaser: "Hands-on programming guidance for first-year students",
+    description: "Served as an undergraduate teaching assistant across multiple semesters from 2020 to 2024, assisting first-year students during lab sessions and providing hands-on programming guidance.",
+    tags: ["Teaching", "Programming"]
+  },
+  {
+    id: "oncloud9",
+    org: "onCloud9",
+    role: "Front-End Developer",
+    period: "Jan — Feb 2022",
+    location: "Daegu, Korea",
+    teaser: "Front-end development for a new blockchain-based service",
+    description: "Developed front-end components for the launch of a new blockchain-based service.",
+    tags: ["Front-end development", "Blockchain"]
   },
   {
     id: "fel",
@@ -133,11 +171,11 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
       <div class="hero-copy">
         <p class="hello">Hi, I’m Donggyu <span aria-hidden="true">👋</span></p>
         <h1>AI for economic<br />and social questions.</h1>
-        <p class="lead">Incoming PhD student at KAIST, studying how AI systems reason about economic and social phenomena.</p>
+        <p class="lead">PhD student in Data Science at KAIST, studying how AI systems reason about economic and social phenomena.</p>
         <p class="bio">I work across large language models, satellite imagery, and computational social science—especially when reliable data are scarce.</p>
 
         <div class="hero-buttons">
-          <a class="home-button primary" href="/assets/CV_DonggyuLee.pdf" target="_blank" rel="noopener" data-cursor="Open CV">Curriculum Vitae <span aria-hidden="true">↗</span></a>
+          <a class="home-button primary" href="/assets/CV_DonggyuLee.pdf?v=20261004" target="_blank" rel="noopener" data-cursor="Open CV">Curriculum Vitae <span aria-hidden="true">↗</span></a>
           <a class="home-button secondary" href="https://scholar.google.co.kr/citations?user=fp4h9-kAAAAJ&hl=en" target="_blank" rel="noopener" data-cursor="Scholar">Google Scholar <span aria-hidden="true">↗</span></a>
         </div>
 
@@ -175,7 +213,9 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
             <div class="paper-copy">
               <p class="venue">{paper.venue}</p>
               <h3><a href={paper.href} target="_blank" rel="noopener" data-cursor="Read paper">{paper.title}</a></h3>
-              <p class="authors">{paper.authors}</p>
+              <p class="authors">{paper.authors.split(", ").map((author, index) => (
+                <>{index > 0 && ", "}{author === "Donggyu Lee" ? <strong>{author}</strong> : author}</>
+              ))}</p>
             </div>
             <div class="paper-actions">
               <a class="paper-action" href={paper.href} target="_blank" rel="noopener" data-cursor="Paper">Paper ↗</a>
@@ -230,8 +270,8 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
         <span aria-hidden="true">🎓</span>
         <p class="section-kicker">Education</p>
         <h3>KAIST</h3>
-        <p>M.S. Data Science · 2024–2026<br />B.S. Computer Science · Economics minor</p>
-        <small>Exchange at EPFL · 2022–2023</small>
+        <p>Ph.D. Data Science · Sep 2026–present<br />M.S. Data Science · 2024–2026<br />B.S. Computer Science · Economics minor</p>
+        <small>Advisor: Prof. Jihee Kim<br />Exchange at EPFL · 2022–2023</small>
       </div>
       {latestPost && (
         <a class="home-small-card writing-card-home" href={getWritingUrl(latestPost)} data-cursor="Read note">
