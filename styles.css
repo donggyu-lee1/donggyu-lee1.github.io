@@ -1813,9 +1813,8 @@ a:focus-visible {
 }
 
 .writing-card-home strong {
-  position: absolute;
-  left: 34px;
-  bottom: 0;
+  display: block;
+  margin-top: 16px;
   color: var(--blue-dark);
   font-size: 10px;
 }
@@ -2053,10 +2052,6 @@ a:focus-visible {
     padding: 34px 0 0;
     border-top: 1px solid var(--line);
     border-left: 0;
-  }
-
-  .writing-card-home strong {
-    left: 0;
   }
 
   .site-footer .footer-bottom {
