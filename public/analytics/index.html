@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Donggyu Lee 개인 홈페이지의 소유자 전용 방문 통계">
+  <title>개인 홈페이지 통계 · Donggyu Lee</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Donggyu Lee 개인 홈페이지"><span class="brand-mark" aria-hidden="true">D.</span><span>Donggyu Lee<span class="brand-detail">PERSONAL WEBSITE</span></span></a>
+      <span class="private-badge"><span aria-hidden="true">●</span> 소유자 전용</span>
+    </div>
+  </header>
+  <main class="shell">
+    <div id="preview-notice" class="notice preview-notice" hidden><strong>디자인 미리보기</strong><span>아래 숫자는 가상 예시입니다. 실제 방문 통계가 아닙니다.</span></div>
+    <section class="page-heading" aria-labelledby="page-title">
+      <div><p class="eyebrow">WEBSITE INSIGHTS</p><h1 id="page-title">개인 홈페이지 통계</h1><p class="property"><span class="property-dot" aria-hidden="true"></span>donggyu-lee1.github.io</p></div>
+      <div class="heading-actions"><button id="refresh" class="button button-plain" hidden><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M16 6a7 7 0 1 0 1 6M16 2v4h-4"/></svg>새로고침</button><button id="logout" class="button button-plain" hidden>로그아웃</button></div>
+    </section>
+    <section id="login-panel" class="login-panel" aria-labelledby="login-title">
+      <div class="login-intro"><span class="lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3M6 10h12a1 1 0 0 1 1 1v9H5v-9a1 1 0 0 1 1-1Zm6 4v3"/></svg></span><h2 id="login-title">방문 통계에 로그인</h2><p>KAIST 교내 네트워크 또는 KVPN에 연결한 후,<br>소유자 ID와 비밀번호를 입력하세요.</p></div>
+      <form id="login-form" class="login-form">
+        <label for="username">ID</label><input id="username" name="username" type="text" autocomplete="username" placeholder="소유자 ID" required>
+        <label for="password">비밀번호</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-primary" type="submit" id="login-submit">통계 보기 <span aria-hidden="true">→</span></button>
+        <p class="login-footnote">로그인 정보는 이 페이지를 닫으면 지워집니다.</p>
+      </form>
+    </section>
+    <div id="status" class="notice" role="status" aria-live="polite" hidden></div>
+    <div id="dashboard" hidden>
+      <section class="toolbar" aria-label="조회 기간 설정">
+        <div class="periods" role="group" aria-label="조회 기간"><button type="button" data-period="1">오늘</button><button type="button" data-period="7" aria-pressed="true" class="selected">최근 7일</button><button type="button" data-period="30">최근 30일</button><button type="button" data-period="custom">직접 선택</button></div>
+        <p id="date-range" class="date-range"></p>
+        <form id="custom-range" class="custom-range" hidden><label>시작일<input id="start-date" type="date" required></label><span aria-hidden="true">—</span><label>종료일<input id="end-date" type="date" required></label><button type="submit" class="button button-small">적용</button></form>
+      </section>
+      <section class="metrics" aria-label="요약 통계">
+        <article class="metric"><span class="metric-label">페이지 조회</span><strong id="pageview-count">—</strong><span class="metric-note">페이지별 중복을 제거한 방문 합계</span></article>
+        <article class="metric"><span class="metric-label">조회된 페이지</span><strong id="page-count">—</strong><span id="page-count-note" class="metric-note">선택한 기간에 조회된 페이지</span></article>
+        <article class="metric"><span class="metric-label">링크 클릭 이벤트</span><strong id="event-count">—</strong><span class="metric-note">수집 설정이 있는 링크의 클릭</span></article>
+      </section>
+      <section class="card trend-card" aria-labelledby="trend-title">
+        <div class="card-heading"><div><h2 id="trend-title">일별 조회 추이</h2><p>페이지 조회와 링크 클릭을 구분해 표시합니다.</p></div><div class="chart-legend"><span><i class="legend-page" aria-hidden="true"></i>페이지 조회</span><span><i class="legend-event" aria-hidden="true"></i>링크 클릭</span></div></div>
+        <div id="trend" class="trend" tabindex="0" aria-label="일별 조회 추이 차트"></div>
+        <p class="chart-footnote">날짜는 한국 시간(KST) 기준입니다. 막대에 마우스를 올리거나 키보드로 선택하면 값을 볼 수 있습니다.</p>
+      </section>
+      <section class="card pages-card" aria-labelledby="pages-title">
+        <div class="card-heading"><div><h2 id="pages-title">많이 본 페이지</h2><p>어떤 연구와 콘텐츠에 관심이 모였는지 확인하세요.</p></div><label class="search-label"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input id="page-search" type="search" placeholder="페이지 검색" aria-label="페이지 검색"></label></div>
+        <div class="table-scroll"><table class="pages-table"><thead><tr><th scope="col">페이지</th><th scope="col">조회</th><th scope="col">비중</th></tr></thead><tbody id="pages-body"></tbody></table></div>
+        <button id="show-pages" class="show-more" type="button" hidden>페이지 더 보기</button>
+        <p id="pages-empty" class="empty" hidden>이 기간에 기록된 페이지 조회가 없습니다.</p>
+      </section>
+      <div class="detail-grid">
+        <section class="card" aria-labelledby="referrers-title"><div class="card-heading"><div><h2 id="referrers-title">유입 경로</h2><p>방문자가 어떤 사이트를 통해 왔는지</p></div></div><div id="referrers" class="rankings"></div><p class="data-footnote">유입 정보가 없는 방문은 직접 방문·미확인으로 표시됩니다.</p></section>
+        <section class="card" aria-labelledby="countries-title"><div class="card-heading"><div><h2 id="countries-title">접속 국가</h2><p>접속 IP로 추정한 국가</p></div><span class="subtle-badge">국가 단위</span></div><div id="countries" class="rankings"></div><p class="data-footnote">실제 거주지나 GPS 위치가 아닙니다. VPN·사설 IP 등은 미확인으로 남을 수 있습니다.</p><p id="country-attribution" class="data-footnote" hidden></p></section>
+        <section class="card browsers-card" aria-labelledby="browsers-title"><div class="card-heading"><div><h2 id="browsers-title">브라우저</h2><p>방문자가 사용한 브라우저</p></div></div><div id="browsers" class="browser-list"></div></section>
+        <section class="card reading-card" aria-labelledby="reading-title"><h2 id="reading-title">통계 읽는 법</h2><p>페이지 조회는 같은 방문자·같은 페이지의 8시간 이내 중복을 제거한 근사치입니다. 서로 다른 페이지의 방문은 각각 합산되며 사이트 전체 고유 방문자 수가 아닙니다.</p><p>링크 클릭은 다운로드 완료를 뜻하지 않습니다. 추적 차단과 네트워크 문제로 일부 방문은 기록되지 않을 수 있습니다.</p><a href="/research/">내 연구 페이지 보기 <span aria-hidden="true">↗</span></a></section>
+      </div>
+      <p class="updated" id="updated"></p>
+    </div>
+    <footer class="footer"><span>Donggyu Lee · 개인 홈페이지 통계</span><div><p>통계 데이터는 개인 전용 KAIST 서버에 저장됩니다.</p><p>이 화면 자체에서는 방문 기록을 수집하지 않습니다.</p><p id="geodb-attribution" hidden></p></div></footer>
+  </main>
+</body>
+</html>
