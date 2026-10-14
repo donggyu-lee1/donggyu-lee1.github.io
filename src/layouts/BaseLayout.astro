@@ -30,6 +30,7 @@ const socialImageUrl = new URL("/assets/og.png", Astro.site ?? Astro.url.origin)
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -50,6 +51,7 @@ const socialImageUrl = new URL("/assets/og.png", Astro.site ?? Astro.url.origin)
     <meta name="twitter:image" content={socialImageUrl} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     {structuredData && <script is:inline type="application/ld+json" set:html={serializeStructuredData(structuredData)} />}
+    <script is:inline defer src="/assets/visitor-analytics.js"></script>
   </head>
   <body>
     <SiteHeader />
