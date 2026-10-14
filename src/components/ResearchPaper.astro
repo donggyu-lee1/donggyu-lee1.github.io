@@ -1,0 +1,27 @@
+---
+import type { Publication } from "../lib/research";
+
+interface Props {
+  paper: Publication;
+}
+
+const { paper } = Astro.props;
+---
+
+<article class="paper-row" data-paper-topic={paper.topic}>
+  <span class="paper-number">{paper.id}</span>
+  <div class="paper-copy">
+    <p class="venue">{paper.venue}</p>
+    <h3><a href={paper.href} target="_blank" rel="noopener" data-cursor="Read paper">{paper.title}</a></h3>
+    <p class="paper-summary">{paper.summary}</p>
+    <p class="authors">{paper.authors.split(", ").map((author, index) => (
+      <>{index > 0 && ", "}{author === "Donggyu Lee" ? <strong>{author}</strong> : author}</>
+    ))}</p>
+  </div>
+  <div class="paper-actions">
+    <a class="paper-action" href={paper.href} target="_blank" rel="noopener" data-cursor="Paper">Paper ↗</a>
+    {paper.projectUrl && (
+      <a class="paper-action project-action" href={paper.projectUrl} target="_blank" rel="noopener" data-cursor="Project">Explore project ↗</a>
+    )}
+  </div>
+</article>

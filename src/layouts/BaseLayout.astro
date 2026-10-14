@@ -1,5 +1,7 @@
 ---
 import "../../styles.css";
+import "../styles/discovery.css";
+import { serializeStructuredData } from "../lib/discovery";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 
@@ -8,13 +10,15 @@ interface Props {
   description: string;
   pageType?: "website" | "article";
   pubDate?: Date;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
   title,
   description,
   pageType = "website",
-  pubDate
+  pubDate,
+  structuredData
 } = Astro.props;
 const fullTitle = title.includes("Donggyu Lee") ? title : `${title} | Donggyu Lee`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
@@ -45,6 +49,7 @@ const socialImageUrl = new URL("/assets/og.png", Astro.site ?? Astro.url.origin)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    {structuredData && <script is:inline type="application/ld+json" set:html={serializeStructuredData(structuredData)} />}
   </head>
   <body>
     <SiteHeader />

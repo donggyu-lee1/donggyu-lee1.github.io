@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ResearchPaper from "../../components/ResearchPaper.astro";
+import { publications } from "../../lib/research";
+import { getResearchGraph } from "../../lib/discovery";
+
+const description =
+  "Research by Donggyu Lee at KAIST: language-model reasoning in economics, " +
+  "EconCausal, ideological bias, satellite imagery, and socioeconomic measurement.";
+const themes = [
+  {
+    id: "economic-reasoning",
+    title: "LLM reasoning in economics",
+    description: "How do language models reason about causal relationships and represent people in economic and social settings?",
+    topic: "llm"
+  },
+  {
+    id: "satellite-society",
+    title: "Satellite imagery & society",
+    description: "Using AI and satellite imagery to study socioeconomic conditions where direct measurements are limited.",
+    topic: "geo"
+  }
+];
+---
+
+<BaseLayout title="Research | Donggyu Lee (이동규) · KAIST" description={description} structuredData={getResearchGraph()}>
+  <a class="skip-link" href="#research-main">Skip to content</a>
+  <main id="research-main" class="home-page research-hub">
+    <section class="research-hub-hero shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Donggyu Lee</a><span aria-hidden="true">/</span><span aria-current="page">Research</span></nav>
+      <p class="section-kicker">Research by Donggyu Lee · <span lang="ko">이동규</span></p>
+      <h1>AI, economics<br />&amp; the world around us.</h1>
+      <p class="hub-lead">I study how AI reasons about economic and social questions, and how it can help measure conditions when reliable data are scarce.</p>
+      <p class="hub-affiliation">Ph.D. student, KAIST Graduate School of Data Science · <a href="https://econai.kaist.ac.kr/" target="_blank" rel="noopener">econai@kaist ↗</a></p>
+      <nav class="theme-jump-links" aria-label="Research themes"><a href="#economic-reasoning">LLM reasoning in economics <span aria-hidden="true">↓</span></a><a href="#satellite-society">Satellite imagery &amp; society <span aria-hidden="true">↓</span></a></nav>
+    </section>
+
+    <section class="project-spotlight shell" aria-labelledby="project-title">
+      <div class="theme-heading"><p class="section-kicker">Explore the work</p><h2 id="project-title">Inside two research projects.</h2></div>
+      <div class="project-grid">
+        <article class="project-card"><p class="project-label">Economic causal reasoning</p><h3><a href="https://econai.kaist.ac.kr/econcausal/">EconCausal</a></h3><p>A benchmark for testing whether language models use causal knowledge in different social-science contexts.</p><a class="project-card-link" href="https://econai.kaist.ac.kr/econcausal/">Read the project, paper &amp; resources <span aria-hidden="true">↗</span></a></article>
+        <article class="project-card"><p class="project-label">Model evaluation</p><h3><a href="https://econai.kaist.ac.kr/ideological-bias-in-llms/">Ideological bias in LLMs</a></h3><p>An investigation of ideological bias in language models’ economic causal reasoning, with results and an interactive paper explorer.</p><a class="project-card-link" href="https://econai.kaist.ac.kr/ideological-bias-in-llms/">Read the project &amp; explore the results <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
+
+    {themes.map((theme) => (
+      <section class="home-section shell hub-topic" id={theme.id} aria-labelledby={`${theme.id}-title`}>
+        <div class="hub-topic-heading"><p class="section-kicker">Research theme</p><h2 id={`${theme.id}-title`}>{theme.title}</h2><p>{theme.description}</p></div>
+        <div class="paper-list">{publications.filter((paper) => paper.topic === theme.topic).map((paper) => <ResearchPaper paper={paper} />)}</div>
+      </section>
+    ))}
+
+    <aside class="research-connect shell"><div><p class="section-kicker">A question or an idea?</p><h2>Let’s talk about research.</h2><p>Find my background on the <a href="/">personal homepage</a>, or explore the work of <a href="https://econai.kaist.ac.kr/" target="_blank" rel="noopener">econai@kaist ↗</a>.</p></div><a class="home-button primary" href="mailto:donggyu.lee@kaist.ac.kr">Get in touch <span aria-hidden="true">↗</span></a></aside>
+  </main>
+</BaseLayout>

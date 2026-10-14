@@ -1,16 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedPosts, getWritingUrl } from "../lib/writing";
-
-interface Publication {
-  id: string;
-  title: string;
-  authors: string;
-  venue: string;
-  topic: "llm" | "geo";
-  href: string;
-  projectUrl?: string;
-}
+import ResearchPaper from "../components/ResearchPaper.astro";
+import { publications } from "../lib/research";
+import { profileDescription, getProfileGraph } from "../lib/discovery";
 
 interface Experience {
   id: string;
@@ -23,50 +16,6 @@ interface Experience {
   tags: string[];
   award?: string;
 }
-
-const publications: Publication[] = [
-  {
-    id: "01",
-    title: "Ideological Bias in LLMs’ Economic Causal Reasoning",
-    authors: "Donggyu Lee, Hyeok Yun, Jungwon Kim, Junsik Min, Sungwon Park, Sangyoon Park, Jihee Kim",
-    venue: "COLM 2026",
-    topic: "llm",
-    href: "https://arxiv.org/abs/2604.21334",
-    projectUrl: "https://econai.kaist.ac.kr/ideological-bias-in-llms/"
-  },
-  {
-    id: "02",
-    title: "EconCausal: A Context-Aware Causal Reasoning Benchmark for Large Language Models in Social Science",
-    authors: "Donggyu Lee, Hyeok Yun, Meeyoung Cha, Sungwon Park, Sangyoon Park, Jihee Kim",
-    venue: "NeurIPS 2026 EconML Workshop",
-    topic: "llm",
-    href: "https://arxiv.org/abs/2510.07231"
-  },
-  {
-    id: "03",
-    title: "From Simulated Citizens to Simulated Deliberation: Challenges in Representation and Interaction",
-    authors: "Chaemin Jang, Junsik Min, Jaewoo Choi, Donggyu Lee, Haiin Lee, Junyoung Park, Namhee Kim, Hyunwoo Kim, Jungwon Kim, Juho Kim, Nuri Kim, Jihee Kim",
-    venue: "NeurIPS 2026 SocialAgent Workshop · NeurIPS 2026 UserSim Workshop",
-    topic: "llm",
-    href: "https://arxiv.org/abs/2609.07573"
-  },
-  {
-    id: "04",
-    title: "Tracking Economic Disparities in North Korea: Satellite Imagery Analysis Using AI with Policy Insights",
-    authors: "Sumin Lee, Hyoshin Kim, Donghyun Ahn, Donggyu Lee, Jungwon Kim, Hyeok Yun, Chaemin Jang, Dongman Lee, Meeyoung Cha, Jihee Kim",
-    venue: "ACM GOODIT 2025",
-    topic: "geo",
-    href: "https://dl.acm.org/doi/10.1145/3748699.3749786"
-  },
-  {
-    id: "05",
-    title: "LLM-Driven Socio-Economic Estimation for Visegrád Countries",
-    authors: "Donghyun Ahn, Sumin Lee, Donggyu Lee, Jungwon Kim, Sungwon Han, Seungeon Lee, Younhyung Chae, Jihee Kim, Meeyoung Cha",
-    venue: "ACM GOODIT 2025",
-    topic: "geo",
-    href: "https://dl.acm.org/doi/10.1145/3748699.3749803"
-  }
-];
 
 const experiences: Experience[] = [
   {
@@ -123,10 +72,10 @@ const experiences: Experience[] = [
 ];
 
 const latestPost = (await getPublishedPosts())[0];
-const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, and computational social science at KAIST.";
+const pageDescription = profileDescription;
 ---
 
-<BaseLayout title="Donggyu Lee — AI, Economics & Society" description={pageDescription}>
+<BaseLayout title="Donggyu Lee (이동규) | AI, Economics & Society · KAIST" description={pageDescription} structuredData={getProfileGraph()}>
   <main id="top" class="home-page">
     <div class="cursor-follower" aria-hidden="true"><span></span></div>
     <a class="skip-link" href="#about">Skip to content</a>
@@ -134,15 +83,19 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
     <section class="home-hero shell" id="about">
       <div class="portrait-wrap" data-cursor="Hi!">
         <div class="portrait-blob" aria-hidden="true"></div>
-        <img src="/assets/profile.jpg" alt="Portrait of Donggyu Lee" width="2072" height="2214" />
+        <picture>
+          <source type="image/webp" srcset="/assets/profile-640.webp 640w, /assets/profile-960.webp 960w" sizes="(max-width: 650px) 78vw, 320px" />
+          <img src="/assets/profile.jpg" alt="Donggyu Lee (이동규), Ph.D. student at KAIST" width="2072" height="2214" fetchpriority="high" decoding="async" />
+        </picture>
         <span class="portrait-caption">Daejeon, Korea <b aria-hidden="true">●</b></span>
       </div>
 
       <div class="hero-copy">
-        <p class="hello">Hi, I’m Donggyu <span aria-hidden="true">👋</span></p>
+        <p class="hello">Hi, I’m Donggyu Lee <span class="korean-name" lang="ko">이동규</span> <span aria-hidden="true">👋</span></p>
         <h1>AI for economic<br />and social questions.</h1>
-        <p class="lead">PhD student in Data Science at KAIST, studying how AI systems reason about economic and social phenomena.</p>
+        <p class="lead">Ph.D. student at KAIST Graduate School of Data Science, studying how AI systems reason about economic and social phenomena.</p>
         <p class="bio">I work across large language models, satellite imagery, and computational social science—especially when reliable data are scarce.</p>
+        <p class="affiliation-line">At <a href="https://econai.kaist.ac.kr/" target="_blank" rel="noopener">econai@kaist ↗</a>, advised by <a href="https://jiheekim.net/" target="_blank" rel="noopener">Prof. Jihee Kim ↗</a>.</p>
 
         <div class="hero-buttons">
           <a class="home-button primary" href="/assets/CV_DonggyuLee.pdf?v=20261004" target="_blank" rel="noopener" data-cursor="Open CV">Curriculum Vitae <span aria-hidden="true">↗</span></a>
@@ -163,11 +116,20 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
       <a href="#experience" data-cursor="Details">More</a>
     </aside>
 
+    <section class="research-themes shell" aria-labelledby="themes-title">
+      <div class="theme-heading"><p class="section-kicker">Questions that guide my work</p><h2 id="themes-title">Two connected research themes.</h2></div>
+      <div class="theme-grid">
+        <a class="theme-card reasoning-theme" href="/research/#economic-reasoning"><span class="theme-index" aria-hidden="true">01 / Reasoning</span><h3>LLM reasoning in economics</h3><p>Can language models use economic evidence across contexts, and how does ideological bias affect their causal judgments?</p><span class="theme-link">Explore the research <span aria-hidden="true">↗</span></span></a>
+        <a class="theme-card satellite-theme" href="/research/#satellite-society"><span class="theme-index" aria-hidden="true">02 / Measurement</span><h3>Satellite imagery &amp; society</h3><p>How can satellite imagery and machine learning help study economic and social conditions where direct measurements are limited?</p><span class="theme-link">Explore the research <span aria-hidden="true">↗</span></span></a>
+      </div>
+    </section>
+
     <section class="home-section shell" id="work">
       <div class="home-section-title-row">
         <div>
-          <p class="section-kicker">Selected work</p>
-          <h2>Research</h2>
+          <p class="section-kicker">Selected publications</p>
+          <h2>Papers &amp; projects</h2>
+          <a class="research-overview-link" href="/research/">All research &amp; resources <span aria-hidden="true">↗</span></a>
         </div>
         <div class="filter-buttons" aria-label="Filter publications">
           <button type="button" class="active" aria-pressed="true" data-filter="all" data-cursor="Filter">All</button>
@@ -177,24 +139,7 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
       </div>
 
       <div class="paper-list" aria-live="polite">
-        {publications.map((paper) => (
-          <article class="paper-row" data-paper-topic={paper.topic}>
-            <span class="paper-number">{paper.id}</span>
-            <div class="paper-copy">
-              <p class="venue">{paper.venue}</p>
-              <h3><a href={paper.href} target="_blank" rel="noopener" data-cursor="Read paper">{paper.title}</a></h3>
-              <p class="authors">{paper.authors.split(", ").map((author, index) => (
-                <>{index > 0 && ", "}{author === "Donggyu Lee" ? <strong>{author}</strong> : author}</>
-              ))}</p>
-            </div>
-            <div class="paper-actions">
-              <a class="paper-action" href={paper.href} target="_blank" rel="noopener" data-cursor="Paper">Paper ↗</a>
-              {paper.projectUrl && (
-                <a class="paper-action project-action" href={paper.projectUrl} target="_blank" rel="noopener" data-cursor="Project">Project page ↗</a>
-              )}
-            </div>
-          </article>
-        ))}
+        {publications.map((paper) => <ResearchPaper paper={paper} />)}
       </div>
     </section>
 
@@ -241,7 +186,7 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
         <p class="section-kicker">Education</p>
         <h3>KAIST</h3>
         <p>Ph.D. Data Science · Sep 2026 – Present<br />M.S. Data Science · Sep 2024 – Aug 2026<br />B.S. Computer Science · Mar 2017 – Aug 2024<br />Economics minor</p>
-        <small>Advisor: Prof. Jihee Kim<br />Exchange at EPFL · Aug 2022 – Feb 2023</small>
+        <small>Advisor: <a href="https://jiheekim.net/" target="_blank" rel="noopener">Prof. Jihee Kim ↗</a><br />Exchange at EPFL · Aug 2022 – Feb 2023</small>
       </div>
       {latestPost && (
         <a class="home-small-card writing-card-home" href={getWritingUrl(latestPost)} data-cursor="Read note">
@@ -254,6 +199,7 @@ const pageDescription = "Donggyu Lee studies AI reasoning, satellite imagery, an
       )}
     </section>
   </main>
+  <noscript><style is:inline>.experience-detail[hidden]{display:grid}.plus{display:none}</style></noscript>
 </BaseLayout>
 
 <script>

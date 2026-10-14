@@ -1,0 +1,86 @@
+/* Research discovery additions: retain the existing homepage palette and character. */
+.korean-name{color:var(--muted);font-size:.82em;letter-spacing:-.03em;margin-left:4px;animation:none!important}
+.affiliation-line{color:var(--muted);font-size:12px;line-height:1.7;margin:13px 0 0}
+.affiliation-line a,.education-card small a,.hub-affiliation a{color:var(--blue-dark);text-decoration:underline;text-decoration-color:#5068df55;text-underline-offset:3px;font-weight:750}
+.portrait-wrap picture{height:100%;display:block}
+.portrait-wrap picture img{height:100%}
+.research-themes{padding-top:56px}
+.theme-heading{margin-bottom:23px}
+.theme-heading h2{font-size:clamp(24px,3.5vw,33px);font-weight:760;letter-spacing:-.04em;line-height:1.15;margin:5px 0 0}
+.theme-grid,.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.theme-card{padding:27px 27px 23px;border-radius:17px;border:1px solid #ccd5e7;display:flex;flex-direction:column;align-items:flex-start;position:relative;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden}
+.reasoning-theme{background:linear-gradient(145deg,#edf0ff,#e8e6fa)}
+.satellite-theme{background:linear-gradient(145deg,#ebf5f1,#e2efe9)}
+.theme-card:hover{transform:translateY(-3px);border-color:#91a2cb;box-shadow:0 13px 26px #2a3e7c0b}
+.theme-index{font-size:9px;color:#5b657f;letter-spacing:.08em;text-transform:uppercase;font-weight:850}
+.theme-card h3{font-size:23px;font-weight:740;letter-spacing:-.035em;line-height:1.2;max-width:250px;margin:18px 0 12px}
+.theme-card p{font-size:12px;line-height:1.72;color:#535e76;margin:0 0 22px;max-width:37ch}
+.theme-link{font-size:10px;color:var(--blue-dark);font-weight:850;display:flex;gap:12px;margin-top:auto}
+.theme-link span{transition:transform .18s;display:inline-block}
+.theme-card:hover .theme-link span{transform:translate(2px,-2px)}
+.research-overview-link{font-size:11px;color:var(--blue-dark)!important;font-weight:800;display:inline-flex;gap:8px;margin-top:18px}
+.paper-summary{margin:9px 0 0;font-size:12px;line-height:1.6;color:#4d5874;max-width:65ch}
+.paper-row{gap:19px}
+.paper-actions{min-width:118px}
+.paper-action{font-size:10px;padding:8px 12px}
+.authors{font-size:10px}
+.research-hub-hero{padding-block:28px 57px}
+.breadcrumbs{color:var(--muted);font-size:11px;display:flex;gap:10px;margin-bottom:54px}
+.breadcrumbs a:hover{color:var(--blue-dark)}
+.research-hub-hero h1{font-size:clamp(44px,6vw,66px);font-weight:780;letter-spacing:-.058em;line-height:1.02;margin:13px 0 25px}
+.hub-lead{max-width:680px;color:#39445e;font-size:clamp(17px,2vw,21px);font-weight:540;line-height:1.55;margin:0 0 18px}
+.hub-affiliation{font-size:12px;color:var(--muted);margin:0}
+.theme-jump-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:31px}
+.theme-jump-links a{border:1px solid #cbd5e8;border-radius:999px;font-size:11px;font-weight:750;padding:11px 16px;display:flex;gap:19px;background:#ffffffae;transition:background .18s,border-color .18s}
+.theme-jump-links a:hover{border-color:var(--blue);background:#fff}
+.project-spotlight{padding-bottom:28px}
+.project-card{border:1px solid #cfd8e8;background:#ffffffbc;padding:27px;border-radius:17px;display:flex;flex-direction:column}
+.project-label{color:var(--blue-dark);font-size:9px;letter-spacing:.07em;text-transform:uppercase;font-weight:850;margin:0}
+.project-card h3{margin:17px 0 12px;font-size:25px;letter-spacing:-.035em;line-height:1.2}
+.project-card h3 a:hover{color:var(--blue-dark)}
+.project-card>p:not(.project-label){font-size:12px;color:var(--muted);line-height:1.75;margin:0 0 24px}
+.project-card-link{margin-top:auto;padding-top:17px;border-top:1px solid var(--line);font-size:10px;color:var(--blue-dark)!important;font-weight:800;display:flex;justify-content:space-between;gap:10px}
+.hub-topic{scroll-margin-top:35px}
+.hub-topic-heading{margin-bottom:30px}
+.hub-topic h2{font-size:clamp(30px,4.5vw,45px);max-width:680px}
+.hub-topic-heading>p:last-child{font-size:14px;line-height:1.7;max-width:690px;color:var(--muted);margin:17px 0 0}
+.research-connect{border-top:1px solid var(--line);padding-block:40px 65px;display:flex;gap:25px;align-items:center;justify-content:space-between}
+.research-connect h2{font-size:29px;line-height:1.18;letter-spacing:-.04em;margin:6px 0 12px}
+.research-connect p:last-child{color:var(--muted);font-size:12px;margin:0;max-width:490px}
+.research-connect p a{color:var(--blue-dark);text-decoration:underline;text-underline-offset:3px}
+.research-connect .home-button{flex-shrink:0;min-width:175px}
+@media(width<=860px){
+  .site-header .header-inner{grid-template-columns:1fr auto;gap:15px;min-height:94px;padding-block:16px}
+  .site-header .site-nav{display:flex;grid-column:1/-1;grid-row:2;gap:24px;flex-wrap:wrap}
+  .site-header .header-hello{grid-column:2;grid-row:1}
+  .site-header .site-nav a{font-size:11px}
+}
+@media(width<=650px){
+  .home-hero{padding-block:34px 40px;gap:30px}
+  .home-hero .portrait-wrap{width:min(64vw,250px);aspect-ratio:.95}
+  .home-hero h1{font-size:clamp(39px,11.5vw,48px);line-height:1.06}
+  .home-hero .lead{font-size:18px;line-height:1.5}
+  .research-themes{padding-top:47px}
+  .theme-grid,.project-grid{grid-template-columns:1fr;gap:13px}
+  .theme-card{padding:23px}
+  .theme-card h3{max-width:100%;font-size:24px;margin-top:13px}
+  .theme-card p{max-width:100%;margin-bottom:19px;font-size:13px}
+  .theme-card .theme-link{font-size:11px}
+  .theme-heading h2{font-size:27px;max-width:280px}
+  .paper-summary{font-size:12px}
+  .authors{font-size:10px}
+  .paper-actions{min-width:0}
+  .research-hub-hero{padding-block:22px 45px}
+  .breadcrumbs{margin-bottom:37px}
+  .research-hub-hero h1{font-size:clamp(40px,11.5vw,59px)}
+  .hub-lead{font-size:17px}
+  .theme-jump-links{gap:9px}
+  .theme-jump-links a{font-size:11px;padding:11px 13px;width:100%;justify-content:space-between}
+  .project-card{padding:24px}
+  .project-card>p:not(.project-label){font-size:13px}
+  .project-card-link{font-size:11px}
+  .hub-topic{padding-block:57px}
+  .hub-topic h2{font-size:34px}
+  .research-connect{align-items:flex-start;flex-direction:column;padding-bottom:48px}
+  .research-connect .home-button{width:100%;flex:auto}
+}
